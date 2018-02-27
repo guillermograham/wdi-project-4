@@ -10,7 +10,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           placeholder="Username"
           onChange={handleChange}
           value={user.username}
-          className="form-control"
+          className="input"
         />
       </div>
       <div className="form-group">
@@ -20,7 +20,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           placeholder="Email"
           onChange={handleChange}
           value={user.email}
-          className="form-control"
+          className="input"
         />
       </div>
       <div className="form-group">
@@ -30,7 +30,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           placeholder="Image"
           onChange={handleChange}
           value={user.image}
-          className="form-control"
+          className="input"
         />
       </div>
       <div className="form-group">
@@ -40,7 +40,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           placeholder="Password"
           onChange={handleChange}
           value={user.password}
-          className="form-control"
+          className="input"
         />
       </div>
       <div className="form-group">
@@ -50,11 +50,11 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           placeholder="Confirm Password"
           onChange={handleChange}
           value={user.passwordConfirmation}
-          className="form-control"
+          className="input"
         />
       </div>
 
-      <button className="main-button">Register</button>
+      <button className="button is-primary">Register</button>
     </form>
   );
 };
