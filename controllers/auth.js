@@ -11,7 +11,6 @@ function registerRoute(req, res, next) {
       const token = jwt.sign({ userId: user.id }, secret, { expiresIn: '1hr' });
       return res.json({ token, message: `Thanks for registering ${user.username}, please login`, user });
     })
-
     .catch(next);
 }
 
