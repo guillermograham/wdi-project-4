@@ -5,10 +5,10 @@ import React from 'react';
 const DecksForm = ({ handleChange, handleSubmit, deck }) => {
   return(
     <form onSubmit={handleSubmit} className="col-md-6">
-      <div className="form-group">
+      <div className="control">
         <input
           type="text"
-          className="form-control"
+          className="input"
           id="name"
           name="name"
           placeholder="Name"
@@ -16,35 +16,10 @@ const DecksForm = ({ handleChange, handleSubmit, deck }) => {
           onChange={handleChange}
         />
       </div>
-      <div className="form-group">
+      <div className="control">
         <input
           type="text"
-          className="form-control"
-          id="image"
-          name="image"
-          placeholder="Image"
-          value={deck.image}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <select
-          className="form-control"
-          id="level"
-          name="level"
-          value={deck.level}
-          onChange={handleChange}
-        >
-          <option value="" disabled>Please select difficuly level</option>
-          <option>Beginner</option>
-          <option>Intermediate</option>
-          <option>Advanced</option>
-        </select>
-      </div>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control"
+          className="input"
           id="language"
           name="language"
           placeholder="Language"
@@ -52,9 +27,24 @@ const DecksForm = ({ handleChange, handleSubmit, deck }) => {
           onChange={handleChange}
         />
       </div>
-      <div>
-        <button className="save-button">Save</button>
+      <div className="control">
+        <div className="select">
+          <select
+            id="level"
+            name="level"
+            value={deck.level}
+            onChange={handleChange}
+          >
+            <option value="" disabled>Please select difficuly level</option>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+          </select>
+        </div>
       </div>
+      {/* <div>
+        <button className="button is-primary">Save</button>
+      </div> */}
     </form>
   );
 };

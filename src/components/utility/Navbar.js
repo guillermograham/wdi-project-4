@@ -18,6 +18,9 @@ const Navbar = ({ history }) => {
     <nav className="navbar" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <h1><Link to="/">AppName</Link></h1>
+        <div className="navbar-start">
+          <Link to="/decks/new" className="button is-primary">New deck</Link>
+        </div>
       </div>
       <div className="navbar-end">
         <div className="navbar-item">

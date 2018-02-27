@@ -10,11 +10,11 @@ class DecksNew extends Component {
       image: '',
       level: '',
       language: '',
-      cards: [],
-      newCard: {
-        question: '',
-        answer: ''
-      }
+      cards: []
+    },
+    newCard: {
+      question: '',
+      answer: ''
     }
   }
 
@@ -32,13 +32,81 @@ class DecksNew extends Component {
       .catch(err => console.log(err));
   }
 
+  handleCardChange = ({ target: { name, value }}) => {
+    const newCard = Object.assign({}, this.state.newCard, { [name]: value});
+    this.setState({ newCard });
+  }
+
+  handleCardSubmit = (e) => {
+    e.preventDefault();
+    const deck = Object.assign({}, this.state.deck, { cards: this.state.deck.cards.concat(this.state.newCard)});
+    this.setState({deck, newCard: { question: '', answer: ''} }, () => console.log(this.state));
+  }
+
+  handleCardDelete = (index) => {
+    const array = this.state.deck.cards.filter((_, i) => i !== index);
+    const deck = Object.assign({}, this.state.deck, { cards: array});
+    this.setState({ deck });
+  }
+
   render() {
     return(
-      <DecksForm
-        handleChange = { this.handleChange }
-        handleSubmit = { this.handleSubmit }
-        deck = { this.state.deck }
-      />
+      <div>
+        <DecksForm
+          handleChange = { this.handleChange }
+          // handleSubmit = { this.handleSubmit }
+          deck = { this.state.deck }
+        />
+        <div>
+          { this.state.deck.cards && this.state.deck.cards.map((card, i) =>
+            <div key={ i } className="columns">
+              <div className="column">
+                <p>{card.question}</p>
+              </div>
+              <div className="column">
+                <p>{card.answer}</p>
+              </div>
+              <div className="column is-one-fifth">
+                <button className="delete" onClick={ () => this.handleCardDelete(i) }>
+                  Delete
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+        <form onSubmit={this.handleCardSubmit}>
+          <div className="columns">
+            <div className="column">
+              <input
+                type="text"
+                className="input"
+                id="question"
+                name="question"
+                placeholder="Question"
+                value={this.state.newCard.question}
+                onChange={this.handleCardChange}
+              />
+            </div>
+            <div className="column">
+              <input
+                type="text"
+                className="input"
+                id="answer"
+                name="answer"
+                placeholder="Answer"
+                value={this.state.newCard.answer}
+                onChange={this.handleCardChange}
+              />
+            </div>
+            <div className="column is-one-fifth">
+              <button className="button is-primary">Add</button>
+            </div>
+          </div>
+        </form>
+        <div>
+          <button className="button is-primary" onClick={this.handleSubmit}>Save</button>
+        </div>
+      </div>
     );
   }
 }
