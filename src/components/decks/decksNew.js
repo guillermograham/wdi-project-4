@@ -21,7 +21,8 @@ class DecksNew extends Component {
 
   handleChange = ({ target: { name, value }}) => {
     const deck = Object.assign({}, this.state.deck, { [name]: value});
-    this.setState({ deck });
+    const errors = Object.assign({}, this.state.errors, { [name]: '' });
+    this.setState({ deck, errors });
   }
 
   handleSubmit = e => {

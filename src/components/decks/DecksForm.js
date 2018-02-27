@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const DecksForm = ({ handleChange, handleSubmit, deck }) => {
+const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
   return(
     <form onSubmit={handleSubmit} className="col-md-6">
       <div className="control">
@@ -15,6 +15,7 @@ const DecksForm = ({ handleChange, handleSubmit, deck }) => {
           value={deck.name}
           onChange={handleChange}
         />
+        {errors.name && <small>{errors.name}</small>}
       </div>
       <div className="control">
         <input
@@ -26,6 +27,7 @@ const DecksForm = ({ handleChange, handleSubmit, deck }) => {
           value={deck.language}
           onChange={handleChange}
         />
+        {errors.language && <small>{errors.language}</small>}
       </div>
       <div className="control">
         <div className="select">
@@ -40,6 +42,7 @@ const DecksForm = ({ handleChange, handleSubmit, deck }) => {
             <option>Intermediate</option>
             <option>Advanced</option>
           </select>
+          {errors.level && <small>{errors.level}</small>}
         </div>
       </div>
       {/* <div>
