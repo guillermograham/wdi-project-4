@@ -10,6 +10,7 @@ router.route('/register')
   .post(auth.register);
 
 router.route('/decks')
+  .get(decks.index)
   .post(decks.create);
 
 router.all('/*', (req, res) => res.notFound());
