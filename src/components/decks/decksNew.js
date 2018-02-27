@@ -15,7 +15,8 @@ class DecksNew extends Component {
     newCard: {
       question: '',
       answer: ''
-    }
+    },
+    errors: {}
   }
 
   handleChange = ({ target: { name, value }}) => {
@@ -29,7 +30,7 @@ class DecksNew extends Component {
     Axios
       .post('/api/decks', this.state.deck)
       .then(() => this.props.history.push('/'))
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   handleCardChange = ({ target: { name, value }}) => {
@@ -53,9 +54,10 @@ class DecksNew extends Component {
     return(
       <div>
         <DecksForm
-          handleChange = { this.handleChange }
+          handleChange ={this.handleChange}
           // handleSubmit = { this.handleSubmit }
-          deck = { this.state.deck }
+          deck ={this.state.deck}
+          errors={this.state.errors}
         />
         <div>
           { this.state.deck.cards && this.state.deck.cards.map((card, i) =>

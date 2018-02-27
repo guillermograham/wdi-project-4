@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const deckSchema = mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: 'Please provide a name' },
   image: String,
-  level: { type: String, required: true },
-  language: { type: String, required: true },
+  level: { type: String, required: 'Please state the difficulty level' },
+  language: { type: String, required: 'Please state the language' },
   cards: [],
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
