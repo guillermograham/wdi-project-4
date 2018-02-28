@@ -22,7 +22,9 @@ class DecksShow extends Component {
     Axios
       // all classical components have props - defined in constructor
       .get(`/api/decks/${this.props.match.params.id}`)
-      .then(res => this.setState({ deck: res.data }), () => console.log(this.state))
+      .then(res => this.setState({ deck: res.data }, () => {
+        console.log(this.state);
+      }))
       .catch(err => console.log(err));
   }
 
