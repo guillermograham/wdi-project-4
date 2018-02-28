@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 import BackButton from '../utility/BackButton';
 
@@ -56,25 +56,47 @@ class DecksShow extends Component {
         <BackButton />
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
-            <p>{this.state.deck.cards[this.state.currentIndex].question}</p>
-            { this.state.showAnswer && <div>
-              <p>{this.state.deck.cards[this.state.currentIndex].answer}</p>
-              <div>
-                <button
-                  onClick={this.correctAnswer}
-                >Correct
-                </button>
-                <button
-                  onClick={this.incorrectAnswer}
-                >Incorrect
-                </button>
-                <br/>
-              </div>
-            </div>}
+            <div className="box flashcard">
+              <p>{this.state.deck.cards[this.state.currentIndex].question}</p>
+            </div>
 
-            { !this.state.showAnswer && <button onClick={this.showAnswer}>
-              Reveal
-            </button>}
+            <div className="box flashcard">
+              { this.state.showAnswer && <div>
+                <p>{this.state.deck.cards[this.state.currentIndex].answer}</p>
+              </div>}
+            </div>
+
+            <div className="box flashcard columns is-mobile">
+              <div className="column is-one-third">
+                { this.state.showAnswer && <div>
+                  <button
+                    onClick={this.correctAnswer}
+                  >Correct
+                  </button>
+
+                  <br/>
+                </div>}
+              </div>
+              <div className="column is-one-third">
+                { !this.state.showAnswer && <button onClick={this.showAnswer}>
+                  Reveal
+                </button>}
+              </div>
+              <div className="column is-one-third">
+                { this.state.showAnswer && <div>
+                  <button
+                    onClick={this.incorrectAnswer}
+                  >Incorrect
+                  </button>
+                </div>}
+              </div>
+            </div>
+
+
+
+
+
+
           </div>}
         </div>}
         { this.state.deck.cards.length === this.state.currentIndex && <div>
