@@ -53,7 +53,7 @@ class DecksShow extends Component {
   render() {
     return(
       <div>
-        
+        <BackButton />
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
             <p>{this.state.deck.cards.length > 0 && this.state.deck.cards[this.state.currentIndex].question}</p>
