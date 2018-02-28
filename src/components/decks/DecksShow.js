@@ -66,30 +66,28 @@ class DecksShow extends Component {
               </div>}
             </div>
 
-            <div className="box flashcard columns is-mobile">
-              <div className="column is-one-third">
+            <div className="box flashcard buttons">
+
+
+
+                { !this.state.showAnswer && <button onClick={this.showAnswer} className="answer-button">
+                  Reveal
+                </button>}
+
+
                 { this.state.showAnswer && <div>
                   <button
                     onClick={this.correctAnswer}
+                    className="answer-button"
                   >Correct
                   </button>
-
-                  <br/>
-                </div>}
-              </div>
-              <div className="column is-one-third">
-                { !this.state.showAnswer && <button onClick={this.showAnswer}>
-                  Reveal
-                </button>}
-              </div>
-              <div className="column is-one-third">
-                { this.state.showAnswer && <div>
                   <button
                     onClick={this.incorrectAnswer}
+                    className="answer-button"
                   >Incorrect
                   </button>
                 </div>}
-              </div>
+
             </div>
 
 
