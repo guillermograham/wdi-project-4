@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 import { Link } from 'react-router-dom';
 
-// import BackButton from '../utility/BackButton';
+import BackButton from '../utility/BackButton';
 
 class DecksShow extends Component {
   state = {
@@ -32,7 +32,7 @@ class DecksShow extends Component {
     return(
       <div className="row">
         <div className="page-banner col-md-12">
-          {/* <BackButton /> */}
+          <BackButton />
         </div>
         <div className="col-md-6">
           <h3>{ this.state.deck.name }</h3>
