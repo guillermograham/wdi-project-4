@@ -6,6 +6,7 @@ const deckSchema = mongoose.Schema({
   level: { type: String, required: 'Please state the difficulty level' },
   language: { type: String, required: 'Please state the language' },
   cards: [],
+  favourites: Number,
   createdBy: { type: mongoose.Schema.ObjectId, ref: 'User' }
 });
 

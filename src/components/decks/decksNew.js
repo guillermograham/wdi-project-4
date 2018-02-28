@@ -52,6 +52,9 @@ class DecksNew extends Component {
   }
 
   render() {
+
+    const formIsInvalid = Object.keys(this.state.errors).some(key => this.state.errors[key]);
+
     return(
       <div>
         <DecksForm
@@ -62,7 +65,7 @@ class DecksNew extends Component {
         />
         <div>
           { this.state.deck.cards && this.state.deck.cards.map((card, i) =>
-            <div key={ i } className="columns">
+            <div key={ i } className="columns is-mobile">
               <div className="column">
                 <p>{card.question}</p>
               </div>
@@ -78,7 +81,7 @@ class DecksNew extends Component {
           )}
         </div>
         <form onSubmit={this.handleCardSubmit}>
-          <div className="columns">
+          <div className="columns is-mobile">
             <div className="column">
               <input
                 type="text"
@@ -102,12 +105,12 @@ class DecksNew extends Component {
               />
             </div>
             <div className="column is-one-fifth">
-              <button className="button is-primary">Add</button>
+              <button className="button is-primary">+</button>
             </div>
           </div>
         </form>
         <div>
-          <button className="button is-primary" onClick={this.handleSubmit}>Save</button>
+          <button disabled={formIsInvalid} className="button is-primary" onClick={this.handleSubmit}>Save</button>
         </div>
       </div>
     );
