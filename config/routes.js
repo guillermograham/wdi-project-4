@@ -13,6 +13,9 @@ router.route('/decks')
   .get(decks.index)
   .post(decks.create);
 
+router.route('/decks/:id')
+  .get(decks.show);
+
 router.all('/*', (req, res) => res.notFound());
 
 module.exports = router;
