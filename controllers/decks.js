@@ -15,7 +15,19 @@ function decksCreate(req, res, next) {
     .catch(next);
 }
 
+function decksShow(req, res, next) {
+  Deck
+    .findById(req.params.id)
+    .exec()
+    .then((deck) => {
+      if(!deck) return res.notFound();
+      res.json(deck);
+    })
+    .catch(next);
+}
+
 module.exports = {
   index: decksIndex,
-  create: decksCreate
+  create: decksCreate,
+  show: decksShow
 };
