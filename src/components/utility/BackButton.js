@@ -2,11 +2,6 @@ import React from 'react';
 
 import { withRouter } from 'react-router-dom';
 
-// withRouter passes in history on the prop - need to get it from react-router-dom
-// export the functional component with withRouter
-
-// history is the array of history of urls
-
 const BackButton = ({ history }) => {
   return(
     <div>
