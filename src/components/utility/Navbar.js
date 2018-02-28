@@ -19,14 +19,17 @@ const Navbar = ({ history }) => {
       <div className="navbar-brand">
         <h1><Link to="/">AppName</Link></h1>
       </div>
+      <div className="navbar-item">
+        <Link to="/decks">Decks</Link>
+      </div>
       <div className="navbar-end">
         <div className="navbar-item">
           <div className="field is-grouped">
-            { !Auth.isAuthenticated() && <Link to="/login" className="button is-primary">Login</Link> }
+            { !Auth.isAuthenticated() && <Link to="/login" className="">Login</Link> }
             {' '}
-            { !Auth.isAuthenticated() && <Link to="/register" className="button is-primary">Register</Link> }
+            { !Auth.isAuthenticated() && <Link to="/register" className="">Register</Link> }
             {' '}
-            { Auth.isAuthenticated() && <a href="#" className="button is-primary" onClick={logout}>Logout</a> }
+            { Auth.isAuthenticated() && <a href="#" className="" onClick={logout}>Logout</a> }
           </div>
         </div>
       </div>

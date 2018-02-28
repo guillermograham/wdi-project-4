@@ -56,9 +56,22 @@ class DecksShow extends Component {
         <BackButton />
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
-            <p>{this.state.deck.cards.length > 0 && this.state.deck.cards[this.state.currentIndex].question}</p>
-            { this.state.showAnswer && <p>{this.state.deck.cards.length > 0 && this.state.deck.cards[this.state.currentIndex].answer}</p>}
-            { this.state.showAnswer && <div><button onClick={this.correctAnswer}>Correct</button><button onClick={this.incorrectAnswer}>Incorrect</button><br/></div> }
+            <p>{this.state.deck.cards[this.state.currentIndex].question}</p>
+            { this.state.showAnswer && <div>
+              <p>{this.state.deck.cards[this.state.currentIndex].answer}</p>
+              <div>
+                <button
+                  onClick={this.correctAnswer}
+                >Correct
+                </button>
+                <button
+                  onClick={this.incorrectAnswer}
+                >Incorrect
+                </button>
+                <br/>
+              </div>
+            </div>}
+
             { !this.state.showAnswer && <button onClick={this.showAnswer}>
               Reveal
             </button>}
