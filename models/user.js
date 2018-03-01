@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
 });
 
 userSchema.virtual('myDecks', {
-  ref: 'Decks',
+  ref: 'Deck',
   localField: '_id',
   foreignField: 'createdBy'
 });

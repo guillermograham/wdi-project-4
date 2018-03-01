@@ -16,7 +16,7 @@ class UsersShow extends Component {
     Axios
       .get(`/api/users/${this.props.match.params.userId}`)
       .then(res => this.setState({ user: res.data }, () => {
-        console.log(this.state.user.favourites);
+        console.log(this.state.user);
       }))
       .catch(err => console.log(err));
   }

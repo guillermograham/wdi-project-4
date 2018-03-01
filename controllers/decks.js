@@ -10,6 +10,8 @@ function decksIndex(req, res, next) {
 }
 
 function decksCreate(req, res, next) {
+  req.body.createdBy = req.currentUser;
+  
   Deck
     .create(req.body)
     .then(deck => res.status(201).json(deck))
