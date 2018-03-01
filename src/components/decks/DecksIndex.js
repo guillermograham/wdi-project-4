@@ -23,7 +23,7 @@ class DecksIndex extends Component {
         <div className="level">
           <button className="button is-primary">
             <Link to="/decks/new">
-              <i className="fa fa-plus" aria-hidden="true"></i>Add Deck
+              <i className="fa fa-plus" aria-hidden="true"></i> Add Deck
             </Link>
           </button>
         </div>

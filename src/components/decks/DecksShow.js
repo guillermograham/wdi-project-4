@@ -54,15 +54,16 @@ class DecksShow extends Component {
     return(
       <div>
         <BackButton />
+        <div className="box cover">
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
             <div className="box flashcard">
-              <p>{this.state.deck.cards[this.state.currentIndex].question}</p>
+              <h3>{this.state.deck.cards[this.state.currentIndex].question}</h3>
             </div>
 
             <div className="box flashcard">
               { this.state.showAnswer && <div>
-                <p>{this.state.deck.cards[this.state.currentIndex].answer}</p>
+                <h3>{this.state.deck.cards[this.state.currentIndex].answer}</h3>
               </div>}
             </div>
 
@@ -70,7 +71,7 @@ class DecksShow extends Component {
 
 
 
-                { !this.state.showAnswer && <button onClick={this.showAnswer} className="answer-button">
+                { !this.state.showAnswer && <button onClick={this.showAnswer} className="answer-button button is-primary">
                   Reveal
                 </button>}
 
@@ -78,13 +79,13 @@ class DecksShow extends Component {
                 { this.state.showAnswer && <div>
                   <button
                     onClick={this.correctAnswer}
-                    className="answer-button"
-                  >Correct
+                    className="answer-button button is-success"
+                  ><i className="fas fa-check"></i> Correct
                   </button>
                   <button
                     onClick={this.incorrectAnswer}
-                    className="answer-button"
-                  >Incorrect
+                    className="answer-button button is-danger"
+                  ><i className="fas fa-times" aria-hidden="true"></i> Incorrect
                   </button>
                 </div>}
 
@@ -100,6 +101,7 @@ class DecksShow extends Component {
         { this.state.deck.cards.length === this.state.currentIndex && <div>
           <p>Congratulations!</p>
         </div>}
+      </div>
       </div>
     );
   }
