@@ -14,7 +14,8 @@ router.route('/decks')
   .post(decks.create);
 
 router.route('/decks/:id')
-  .get(decks.show);
+  .get(decks.show)
+  .put(decks.update);
 
 router.all('/*', (req, res) => res.notFound());
 
