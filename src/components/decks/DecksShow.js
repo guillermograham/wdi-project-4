@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 // import { Link } from 'react-router-dom';
 
@@ -54,6 +56,7 @@ class DecksShow extends Component {
     return(
       <div>
         <BackButton />
+        <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>
         <div className="box cover">
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
