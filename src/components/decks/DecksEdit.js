@@ -22,7 +22,8 @@ class DecksEdit extends Component {
 
   handleChange = ({ target: { name, value }}) => {
     const deck = Object.assign({}, this.state.deck, { [name]: value});
-    this.setState({ deck });
+    const errors = Object.assign({}, this.state.errors, { [name]: '' });
+    this.setState({ deck, errors });
   }
 
   handleSubmit = e => {
@@ -31,7 +32,7 @@ class DecksEdit extends Component {
     Axios
       .put(`/api/decks/${this.props.match.params.id}`, this.state.deck)
       .then(() => this.props.history.push(`/decks/${this.props.match.params.id}`))
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   componentDidMount() {
@@ -59,6 +60,9 @@ class DecksEdit extends Component {
   }
 
   render() {
+
+    const formIsInvalid = Object.keys(this.state.errors).some(key => this.state.errors[key]);
+
     return(
       <div>
         <DecksForm
@@ -76,7 +80,12 @@ class DecksEdit extends Component {
           errors={this.state.errors}
         />
         <div>
-          <button className="button is-primary" onClick={this.handleSubmit}>Save</button>
+          <button
+            disabled={formIsInvalid}
+            className="button is-primary"
+            onClick={this.handleSubmit}
+          >Save
+          </button>
         </div>
       </div>
     );

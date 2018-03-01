@@ -28,7 +28,7 @@ function decksShow(req, res, next) {
 
 function decksUpdate(req, res, next) {
   Deck
-    .findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
     .then(deck => res.status(200).json(deck))
     .catch(next);
 }
