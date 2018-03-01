@@ -9,6 +9,7 @@ import DecksNew    from './components/decks/DecksNew';
 import DecksIndex    from './components/decks/DecksIndex';
 import DecksShow    from './components/decks/DecksShow';
 import DecksEdit    from './components/decks/DecksEdit';
+import UsersShow    from './components/users/UsersShow';
 
 import './scss/style.scss';
 import 'font-awesome/css/font-awesome.css';
@@ -27,6 +28,7 @@ class App extends React.Component {
             <Switch>
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
+              <Route path="/users/:userId" component={UsersShow} />
               <Route path="/decks/:id/edit" component={DecksEdit} />
               <Route path="/decks/new" component={DecksNew} />
               <Route path="/decks/:id" component={DecksShow} />

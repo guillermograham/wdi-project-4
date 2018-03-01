@@ -21,6 +21,7 @@ const Navbar = ({ history }) => {
       </div>
       <div className="navbar-item">
         <Link to="/decks">Decks</Link>
+        { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}>My profile</Link> }
       </div>
       <div className="navbar-end">
         <div className="navbar-item">

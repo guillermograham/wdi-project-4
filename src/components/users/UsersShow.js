@@ -7,20 +7,29 @@ import { Link } from 'react-router-dom';
 
 class UsersShow extends Component {
   state = {
-    user: {}
+    user: {
+      favourites: []
+    }
   }
 
   componentDidMount() {
     Axios
-      .get(`/api/users/${this.props.match.params.id}`)
-      .then(res => this.setState({ user: res.data }))
+      .get(`/api/users/${this.props.match.params.userId}`)
+      .then(res => this.setState({ user: res.data }, () => {
+        console.log(this.state.user.favourites);
+      }))
       .catch(err => console.log(err));
   }
 
   render() {
     return(
       <div>
-
+        { this.state.user && this.state.user.favourites.map((deck, i) =>
+          <div key={i}>
+            <p>{deck.name}</p>
+            <p>{deck.language}</p>
+          </div>
+        )}
       </div>
     );
   }
