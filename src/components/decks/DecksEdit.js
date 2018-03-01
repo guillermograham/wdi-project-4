@@ -6,23 +6,21 @@ import DecksForm from './DecksForm';
 class DecksEdit extends Component {
   state = {
     deck: {
-      title: '',
+      name: '',
       image: '',
-      category: ''
-    }
+      level: '',
+      language: '',
+      cards: []
+    },
+    newCard: {
+      question: '',
+      answer: ''
+    },
+    errors: {}
   }
-
-  // instead of e.target.name and e.target.value
 
   handleChange = ({ target: { name, value }}) => {
-    console.log(name, value);
-    // [name] ensures the relevent is updated. Name is on the input box
     const deck = Object.assign({}, this.state.deck, { [name]: value});
-    this.setState({ deck });
-  }
-
-  handleImageUpload = result => {
-    const deck = Object.assign({}, this.state.deck, { image: result.filesUploaded[0].url});
     this.setState({ deck });
   }
 
@@ -47,8 +45,8 @@ class DecksEdit extends Component {
       <DecksForm
         handleChange={ this.handleChange}
         handleSubmit={ this.handleSubmit}
-        handleImageUpload = {this.handleImageUpload}
         deck={this.state.deck}
+        errors={this.state.errors}
       />
     );
   }
