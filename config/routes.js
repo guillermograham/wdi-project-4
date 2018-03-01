@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const auth  = require('../controllers/auth');
 const decks  = require('../controllers/decks');
-
+const secureRoute = require('../lib/secureRoute');
 
 router.route('/login')
   .post(auth.login);
@@ -17,6 +17,9 @@ router.route('/decks/:id')
   .get(decks.show)
   .put(decks.update)
   .delete(decks.delete);
+
+router.route('/decks/:id/favourite')
+  .post(secureRoute, decks.favourite);
 
 router.all('/*', (req, res) => res.notFound());
 
