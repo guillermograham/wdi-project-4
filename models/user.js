@@ -9,6 +9,12 @@ const userSchema = mongoose.Schema({
   favourites: [{ type: mongoose.Schema.ObjectId, ref: 'Deck' }]
 });
 
+userSchema.virtual('myDecks', {
+  ref: 'Decks',
+  localField: '_id',
+  foreignField: 'createdBy'
+});
+
 userSchema
   .virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(passwordConfirmation) {
