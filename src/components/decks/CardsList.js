@@ -2,55 +2,58 @@ import React from 'react';
 
 
 
-const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
+const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck, newCard, errors }) => {
   return(
-    <form onSubmit={handleSubmit} className="col-md-6">
-      <div className="control">
-        <input
-          type="text"
-          className="input"
-          id="name"
-          name="name"
-          placeholder="Name"
-          value={deck.name}
-          onChange={handleChange}
-        />
-        {errors.name && <small>{errors.name}</small>}
+    <div>
+      <div>
+        { deck.cards && deck.cards.map((card, i) =>
+          <div key={ i } className="columns is-mobile">
+            <div className="column">
+              <p>{card.question}</p>
+            </div>
+            <div className="column">
+              <p>{card.answer}</p>
+            </div>
+            <div className="column is-one-fifth">
+              <button className="delete" onClick={ () => handleCardDelete(i) }>
+                Delete
+              </button>
+            </div>
+          </div>
+        )}
       </div>
-      <div className="control">
-        <input
-          type="text"
-          className="input"
-          id="language"
-          name="language"
-          placeholder="Language"
-          value={deck.language}
-          onChange={handleChange}
-        />
-        {errors.language && <small>{errors.language}</small>}
-      </div>
-      <div className="control">
-        <div className="select">
-          <select
-            id="level"
-            name="level"
-            value={deck.level}
-            onChange={handleChange}
-          >
-            <option value="" disabled>Please select difficuly level</option>
-            <option>Beginner</option>
-            <option>Intermediate</option>
-            <option>Advanced</option>
-          </select>
-          {errors.level && <small>{errors.level}</small>}
+      <form onSubmit={handleCardSubmit}>
+        <div className="columns is-mobile">
+          <div className="column">
+            <input
+              type="text"
+              className="input"
+              id="question"
+              name="question"
+              placeholder="Question"
+              value={newCard.question}
+              onChange={handleCardChange}
+            />
+          </div>
+          <div className="column">
+            <input
+              type="text"
+              className="input"
+              id="answer"
+              name="answer"
+              placeholder="Answer"
+              value={newCard.answer}
+              onChange={handleCardChange}
+            />
+          </div>
+          <div className="column is-one-fifth">
+            <button className="button is-primary">+</button>
+          </div>
         </div>
-      </div>
-      {/* <div>
-        <button className="button is-primary">Save</button>
-      </div> */}
-    </form>
+      </form>
+    </div>
   );
 };
 
 
-export default DecksForm;
+export default CardsList;
