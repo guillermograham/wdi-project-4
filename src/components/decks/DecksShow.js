@@ -147,7 +147,11 @@ class DecksShow extends Component {
 
             </div>
 
-
+            { this.state.deck.favourites.map((user, i) =>
+              <div key={i}>
+                  <p>{user.id}</p>
+              </div>
+            )}
 
 
 
