@@ -26,8 +26,16 @@ function decksShow(req, res, next) {
     .catch(next);
 }
 
+function decksUpdate(req, res, next) {
+  Deck
+    .findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(deck => res.status(200).json(deck))
+    .catch(next);
+}
+
 module.exports = {
   index: decksIndex,
   create: decksCreate,
-  show: decksShow
+  show: decksShow,
+  update: decksUpdate
 };
