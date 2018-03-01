@@ -47,8 +47,8 @@ function decksFavourite(req, res, next) {
     .findById(req.currentUser)
     .exec()
     .then((user) => {
-      // check if favourite is already in user'
-      if (user.favourites.indexOf(req.params.id)) {
+      // check if favourite is already in user' - indexOf returns -1 if it is not there
+      if (user.favourites.indexOf(req.params.id) > -1) {
         // removing of the id
         const index = user.favourites.indexOf(req.params.id);
         user.favourites.splice(index, 1);

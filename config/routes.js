@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const auth  = require('../controllers/auth');
 const decks  = require('../controllers/decks');
+const users  = require('../controllers/users');
 const secureRoute = require('../lib/secureRoute');
 
 router.route('/login')
@@ -20,6 +21,9 @@ router.route('/decks/:id')
 
 router.route('/decks/:id/favourite')
   .post(secureRoute, decks.favourite);
+
+router.route('/users/:userId')
+  .get(users.show);
 
 router.all('/*', (req, res) => res.notFound());
 
