@@ -1,4 +1,5 @@
 const Deck = require('../models/deck');
+const User = require('../models/user');
 
 function decksIndex(req, res, next) {
   Deck
@@ -18,6 +19,7 @@ function decksCreate(req, res, next) {
 function decksShow(req, res, next) {
   Deck
     .findById(req.params.id)
+    .populate('favourites')
     .exec()
     .then((deck) => {
       if(!deck) return res.notFound();
@@ -40,10 +42,32 @@ function decksDelete(req, res, next) {
     .catch(next);
 }
 
+function decksFavourite(req, res, next) {
+  User
+    .findById(req.currentUser)
+    .exec()
+    .then((user) => {
+      // check if favourite is already in user'
+      if (user.favourites.indexOf(req.params.id)) {
+        // removing of the id
+        const index = user.favourites.indexOf(req.params.id);
+        user.favourites.splice(index, 1);
+      } else {
+        // push the id in to the user.favourites
+        user.favourites.push(req.params.id);
+      }
+
+      return user.save();
+    })
+    .then((user) => res.json(user))
+    .catch(next);
+}
+
 module.exports = {
   index: decksIndex,
   create: decksCreate,
   show: decksShow,
   update: decksUpdate,
-  delete: decksDelete
+  delete: decksDelete,
+  favourite: decksFavourite
 };

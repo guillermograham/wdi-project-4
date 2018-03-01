@@ -32,6 +32,12 @@ class DecksShow extends Component {
       .catch(err => console.log(err));
   }
 
+  // hasFavorited = () => {
+  //   return this.state.deck.favourites.some((user) => {
+  //     return user.id === Auth.getPayload().userId;
+  //   });
+  // }
+
   showAnswer = () => {
     this.setState({ showAnswer: true });
   }
@@ -53,6 +59,8 @@ class DecksShow extends Component {
   }
 
   render() {
+
+    // const button = this.hasFavorited() ? <button>Favourite</button> : <button>Unfavourite</button>;
     return(
       <div>
         <BackButton />
