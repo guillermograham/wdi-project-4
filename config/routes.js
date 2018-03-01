@@ -11,13 +11,13 @@ router.route('/register')
   .post(auth.register);
 
 router.route('/decks')
-  .get(decks.index)
-  .post(decks.create);
+  .get(secureRoute, decks.index)
+  .post(secureRoute, decks.create);
 
 router.route('/decks/:id')
-  .get(decks.show)
-  .put(decks.update)
-  .delete(decks.delete);
+  .get(secureRoute, decks.show)
+  .put(secureRoute, decks.update)
+  .delete(secureRoute, decks.delete);
 
 router.route('/decks/:id/favourite')
   .post(secureRoute, decks.favourite);

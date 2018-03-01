@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
+import Auth from '../../lib/Auth';
+
 class DecksIndex extends Component {
 
   // using transform-class-properties in Babel, so don't need to define a constructor
@@ -12,7 +14,9 @@ class DecksIndex extends Component {
 
   componentDidMount() {
     Axios
-      .get('/api/decks')
+      .get('/api/decks', { 
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
       .then(res => this.setState({ decks: res.data }))
       .catch(err => console.log(err));
   }

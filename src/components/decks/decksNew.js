@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 import DecksForm from './DecksForm';
+import Auth from '../../lib/Auth';
 
 class DecksNew extends Component {
   state = {
@@ -29,7 +30,9 @@ class DecksNew extends Component {
     e.preventDefault();
 
     Axios
-      .post('/api/decks', this.state.deck)
+      .post('/api/decks', this.state.deck, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
       .then(() => this.props.history.push('/'))
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }

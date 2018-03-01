@@ -19,26 +19,65 @@ class DecksShow extends Component {
 
   deleteDeck = () => {
     Axios
-      .delete(`/api/decks/${this.props.match.params.id}`)
+      .delete(`/api/decks/${this.props.match.params.id}`, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err));
   }
 
   componentDidMount() {
     Axios
-      .get(`/api/decks/${this.props.match.params.id}`)
+      .get(`/api/decks/${this.props.match.params.id}`, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
       .then(res => this.setState({ deck: res.data }, () => {
-        console.log(this.state);
+        console.log('state',this.state);
         console.log(res.data);
         console.log(Auth.getPayload());
       }))
       .catch(err => console.log(err));
   }
 
-  hasFavorited = () => {
+  hasFavourited = () => {
     return this.state.deck.favourites.some((user) => {
       return user.id === Auth.getPayload().userId;
     });
+  }
+
+  favouriteDeck = () => {
+    Axios
+      .post(`/api/decks/${this.props.match.params.id}/favourite`, {}, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
+      .then(res => {
+        const newFavourites = this.state.deck.favourites.slice();
+        newFavourites.push(res.data);
+        console.log('res.data.id: ', res.data.id);
+        console.log('this.state.deck.favourites: ', this.state.deck.favourites);
+        const deck = Object.assign({}, this.state.deck, { favourites: newFavourites});
+        this.setState({ deck }, () => {
+          console.log('this.state.deck afterwards: ', this.state.deck);
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
+  unFavouriteDeck = () => {
+    Axios
+      .post(`/api/decks/${this.props.match.params.id}/favourite`, {}, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
+      .then(res => {
+        const newFavourites = this.state.deck.favourites.slice();
+        const index = newFavourites.indexOf(res.data.id);
+        newFavourites.splice(index, 1);
+        const deck = Object.assign({}, this.state.deck, { favourites: newFavourites});
+        this.setState({ deck }, () => {
+          console.log('this.state.deck afterwards: ', this.state.deck);
+        });
+      })
+      .catch(err => console.log(err));
   }
 
   showAnswer = () => {
@@ -63,11 +102,12 @@ class DecksShow extends Component {
 
   render() {
 
-    const button = this.hasFavorited() ? <button>Favourite</button> : <button>Unfavourite</button>;
+    // const button = !this.hasFavourited() ? <button onClick={this.favouriteDeck}>Favourite</button> : <button onClick={this.unFavouriteDeck}>Unfavourite</button>;
 
     return(
       <div>
-        {button}
+        { !this.hasFavourited() && <button onClick={this.favouriteDeck}>Favourite</button>}
+        { this.hasFavourited() && <button onClick={this.unFavouriteDeck}>Unfavourite</button>}
         <BackButton />
         <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>
         <div className="box cover">

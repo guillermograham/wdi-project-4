@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
+import Auth from '../../lib/Auth';
 import DecksForm from './DecksForm';
 import CardsList from './CardsList';
 
@@ -30,14 +31,18 @@ class DecksEdit extends Component {
     e.preventDefault();
 
     Axios
-      .put(`/api/decks/${this.props.match.params.id}`, this.state.deck)
+      .put(`/api/decks/${this.props.match.params.id}`, this.state.deck, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
       .then(() => this.props.history.push(`/decks/${this.props.match.params.id}`))
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   componentDidMount() {
     Axios
-      .get(`/api/decks/${this.props.match.params.id}`)
+      .get(`/api/decks/${this.props.match.params.id}`, {
+        headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
+      })
       .then(res => this.setState({ deck: res.data }))
       .catch(err => console.log(err));
   }
