@@ -33,9 +33,17 @@ function decksUpdate(req, res, next) {
     .catch(next);
 }
 
+function decksDelete(req, res, next) {
+  Deck
+    .findByIdAndRemove(req.params.id)
+    .then(() => res.status(204).end())
+    .catch(next);
+}
+
 module.exports = {
   index: decksIndex,
   create: decksCreate,
   show: decksShow,
-  update: decksUpdate
+  update: decksUpdate,
+  delete: decksDelete
 };
