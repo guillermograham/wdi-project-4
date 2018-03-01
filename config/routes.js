@@ -15,7 +15,8 @@ router.route('/decks')
 
 router.route('/decks/:id')
   .get(decks.show)
-  .put(decks.update);
+  .put(decks.update)
+  .delete(decks.delete);
 
 router.all('/*', (req, res) => res.notFound());
 
