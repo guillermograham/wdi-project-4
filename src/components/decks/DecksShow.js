@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
+import Auth from '../../lib/Auth';
 // import { Link } from 'react-router-dom';
 
 import BackButton from '../utility/BackButton';
@@ -10,7 +10,8 @@ import BackButton from '../utility/BackButton';
 class DecksShow extends Component {
   state = {
     deck: {
-      cards: []
+      cards: [],
+      favourites: []
     },
     currentIndex: 0,
     showAnswer: false
@@ -28,15 +29,17 @@ class DecksShow extends Component {
       .get(`/api/decks/${this.props.match.params.id}`)
       .then(res => this.setState({ deck: res.data }, () => {
         console.log(this.state);
+        console.log(res.data);
+        console.log(Auth.getPayload());
       }))
       .catch(err => console.log(err));
   }
 
-  // hasFavorited = () => {
-  //   return this.state.deck.favourites.some((user) => {
-  //     return user.id === Auth.getPayload().userId;
-  //   });
-  // }
+  hasFavorited = () => {
+    return this.state.deck.favourites.some((user) => {
+      return user.id === Auth.getPayload().userId;
+    });
+  }
 
   showAnswer = () => {
     this.setState({ showAnswer: true });
@@ -60,9 +63,11 @@ class DecksShow extends Component {
 
   render() {
 
-    // const button = this.hasFavorited() ? <button>Favourite</button> : <button>Unfavourite</button>;
+    const button = this.hasFavorited() ? <button>Favourite</button> : <button>Unfavourite</button>;
+
     return(
       <div>
+        {button}
         <BackButton />
         <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>
         <div className="box cover">
