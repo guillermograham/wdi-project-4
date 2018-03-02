@@ -15,7 +15,7 @@ router.route('/decks')
   .post(secureRoute, decks.create);
 
 router.route('/decks/:id')
-  .get(secureRoute, decks.show)
+  .get(decks.show)
   .put(secureRoute, decks.update)
   .delete(secureRoute, decks.delete);
 

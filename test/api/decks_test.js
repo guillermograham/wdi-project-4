@@ -72,6 +72,30 @@ describe('Decks Controller Tests', () => {
         .set('Authorization', `Bearer ${token}`)
         .expect(200, done);
     });
+
+    it('should return an array of deck objects', done => {
+      api
+        .get('/api/decks')
+        .set('Accept', 'application/json')
+        .set('Authorization', `Bearer ${token}`)
+        .end((err, res) => {
+          expect(res.body)
+            .to.be.an('array')
+            .and.have.property(0)
+            .and.have.all.keys([
+              'name',
+              'image',
+              'level',
+              'language',
+              'cards',
+              'createdBy',
+              'favourites',
+              'id'
+            ]);
+          done();
+        });
+    });
+
   });
 
   // SHOW ROUTE
@@ -112,6 +136,28 @@ describe('Decks Controller Tests', () => {
         .expect(200, done);
     });
 
+    it('should return an array of deck objects', done => {
+      api
+        .get(`/api/decks/${testDeck.id}`)
+        .set('Accept', 'application/json')
+        .set('Authorization', `Bearer ${token}`)
+        .end((err, res) => {
+          expect(res.body)
+            .to.be.an('object')
+            .and.have.all.keys([
+              'name',
+              'image',
+              'level',
+              'language',
+              'cards',
+              'createdBy',
+              'favourites',
+              'id'
+            ]);
+          done();
+        });
+    });
+
   });
 
   // UPDATE ROUTE
@@ -147,6 +193,10 @@ describe('Decks Controller Tests', () => {
     it('should return a 200 response', done => {
       testDeck.name = 'Food';
 
+      // works when adding .id, but not without
+      testDeck.createdBy = testDeck.createdBy.id;
+      console.log('testDeck*******************',testDeck);
+
       api
         .put(`/api/decks/${testDeck.id}`)
         .set('Accept', 'application/json')
@@ -157,6 +207,7 @@ describe('Decks Controller Tests', () => {
 
     it('should return updated deck data in response body', done => {
       testDeck.name = 'Food';
+      testDeck.createdBy = testDeck.createdBy.id;
 
       api
         .put(`/api/decks/${testDeck.id}`)
@@ -166,7 +217,7 @@ describe('Decks Controller Tests', () => {
         .end((err, res) => {
           expect(res.body)
             .to.be.an('object')
-            .and.to.have.property('name', 'Pizza Party');
+            .and.to.have.property('name', 'Food');
 
           done();
         });

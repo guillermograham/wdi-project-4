@@ -11,7 +11,7 @@ function decksIndex(req, res, next) {
 
 function decksCreate(req, res, next) {
   req.body.createdBy = req.currentUser;
-  
+
   Deck
     .create(req.body)
     .then(deck => res.status(201).json(deck))
@@ -32,7 +32,14 @@ function decksShow(req, res, next) {
 
 function decksUpdate(req, res, next) {
   Deck
-    .findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
+    .findById(req.params.id)
+    .exec()
+    .then((deck) => {
+      if(!deck) return res.notFound();
+
+      Object.assign(deck, req.body);
+      return deck.save();
+    })
     .then(deck => res.status(200).json(deck))
     .catch(next);
 }
