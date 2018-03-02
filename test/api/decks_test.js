@@ -276,4 +276,52 @@ describe('Decks Controller Tests', () => {
     });
   });
 
+  // DELETE ROUTE
+  describe('DELETE /api/decks/:id', () => {
+
+    let testDeck = null;
+    let token = null;
+
+    beforeEach(done => {
+
+      User
+        .create(testUserData)
+        .then(user => {
+          testDeckData.createdBy = user.id;
+
+          return Deck.create(testDeckData);
+        })
+        .then(deck => {
+          console.log('***************deck: ', deck);
+          testDeck = deck;
+
+          api
+            .post('/api/register')
+            .set('Accept', 'application/json')
+            .send(testUserData)
+            .end((err, res) => {
+              token = res.body.token;
+              done();
+            });
+        })
+        .catch(done);
+    });
+
+    it('should return a 204 response', done => {
+      api
+        .delete(`/api/decks/${testDeck.id}`)
+        .set('Accept', 'application/json')
+        .set('Authorization', `Bearer ${token}`)
+        .expect(204, done);
+    });
+
+    it('should return a 404 response', done => {
+      api
+        .get(`/api/decks/${testDeck.id}`)
+        .set('Accept', 'application/json')
+        .set('Authorization', `Bearer ${token}`)
+        .expect(404, done);
+    });
+  });
+
 });
