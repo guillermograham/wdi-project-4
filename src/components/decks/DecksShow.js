@@ -115,12 +115,12 @@ class DecksShow extends Component {
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
             <div className="box flashcard">
-              <h3>{this.state.deck.cards[this.state.currentIndex].question}</h3>
+              <h3 className="animated zoomIn">{this.state.deck.cards[this.state.currentIndex].question}</h3>
             </div>
 
             <div className="box flashcard">
               { this.state.showAnswer && <div>
-                <h3>{this.state.deck.cards[this.state.currentIndex].answer}</h3>
+                <h3 className="animated flipInX">{this.state.deck.cards[this.state.currentIndex].answer}</h3>
               </div>}
             </div>
 
@@ -156,7 +156,7 @@ class DecksShow extends Component {
           </div>}
         </div>}
         { this.state.deck.cards.length === this.state.currentIndex && <div>
-          <p>Congratulations!</p>
+          <p className="bounceIn">Congratulations!</p>
         </div>}
       </div>
       </div>
