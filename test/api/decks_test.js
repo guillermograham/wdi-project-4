@@ -224,4 +224,56 @@ describe('Decks Controller Tests', () => {
     });
   });
 
+  // POST ROUTE
+  describe('POST /api/decks', () => {
+    let token = null;
+
+    beforeEach(done => {
+      api
+        .post('/api/register')
+        .set('Accept', 'application/json')
+        .send(testUserData)
+        .end((err, res) => {
+          token = res.body.token;
+          done();
+        });
+    });
+
+
+    it('should return a 201 response', done => {
+      api
+        .post('/api/decks')
+        .set('Accept', 'application/json')
+        .set('Authorization', `Bearer ${token}`)
+        .send(testDeckData)
+        .end((err, res) => {
+          expect(res.status).to.eq(201);
+          done();
+        });
+    });
+
+    it('should return created deck data in response body', done => {
+      api
+        .post('/api/decks')
+        .set('Accept', 'application/json')
+        .set('Authorization', `Bearer ${token}`)
+        .send(testDeckData)
+        .end((err, res) => {
+          expect(res.body)
+            .to.be.an('object')
+            .and.have.all.keys([
+              'name',
+              'image',
+              'level',
+              'language',
+              'cards',
+              'createdBy',
+              'favourites',
+              'id'
+            ]);
+          done();
+        });
+    });
+  });
+
 });
