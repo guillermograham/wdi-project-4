@@ -14,10 +14,10 @@ class DecksIndex extends Component {
 
   componentDidMount() {
     Axios
-      .get('/api/decks', { 
+      .get('/api/decks', {
         headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
       })
-      .then(res => this.setState({ decks: res.data }))
+      .then(res => this.setState({ decks: res.data }, () => console.log(this.state)))
       .catch(err => console.log(err));
   }
 

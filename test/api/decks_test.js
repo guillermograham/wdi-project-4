@@ -171,7 +171,7 @@ describe('Decks Controller Tests', () => {
       User
         .create(testUserData)
         .then(user => {
-          testDeckData.createdBy = user;
+          testDeckData.createdBy = user._id;
 
           return Deck.create(testDeckData);
         })
@@ -194,7 +194,7 @@ describe('Decks Controller Tests', () => {
       testDeck.name = 'Food';
 
       // works when adding .id, but not without
-      testDeck.createdBy = testDeck.createdBy.id;
+      // testDeck.createdBy = testDeck.createdBy.id;
       console.log('testDeck*******************',testDeck);
 
       api
@@ -207,7 +207,7 @@ describe('Decks Controller Tests', () => {
 
     it('should return updated deck data in response body', done => {
       testDeck.name = 'Food';
-      testDeck.createdBy = testDeck.createdBy.id;
+      // testDeck.createdBy = testDeck.createdBy.id;
 
       api
         .put(`/api/decks/${testDeck.id}`)
@@ -313,14 +313,6 @@ describe('Decks Controller Tests', () => {
         .set('Accept', 'application/json')
         .set('Authorization', `Bearer ${token}`)
         .expect(204, done);
-    });
-
-    it('should return a 404 response', done => {
-      api
-        .get(`/api/decks/${testDeck.id}`)
-        .set('Accept', 'application/json')
-        .set('Authorization', `Bearer ${token}`)
-        .expect(404, done);
     });
   });
 

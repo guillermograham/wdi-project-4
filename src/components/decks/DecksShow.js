@@ -33,8 +33,6 @@ class DecksShow extends Component {
       })
       .then(res => this.setState({ deck: res.data }, () => {
         console.log('state',this.state);
-        console.log(res.data);
-        console.log(Auth.getPayload());
       }))
       .catch(err => console.log(err));
   }
