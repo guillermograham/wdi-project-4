@@ -54,4 +54,51 @@ describe('Authentication controller tests', () => {
         });
     });
   });
+
+  // LOGIN ROUTE
+  describe('POST /api/login', () => {
+    beforeEach(done => {
+      api
+        .post('/api/register')
+        .set('Accept', 'application/json')
+        .send(testUser)
+        .end(() => {
+          done();
+        });
+    });
+
+    it('should login a user with the correct credentials', done => {
+      api
+        .post('/api/login')
+        .set('Accept', 'application/json')
+        .send({
+          email: 'test@test.com',
+          password: 'password'
+        })
+        .end((err, res) => {
+          expect(res.status).to.eq(200);
+          expect(res.body).to.be.a('object');
+          expect(res.body.message).to.eq(`Welcome back ${testUser.username}`);
+          expect(res.body.token).to.be.a('string');
+          done();
+        });
+    });
+
+    it('should not login a user with incorrect credentials', function(done) {
+      api
+        .post('/api/login')
+        .set('Accept', 'application/json')
+        .send({
+          email: 'test@test.com',
+          password: 'passworddd'
+        })
+        .end((err, res) => {
+          expect(res.status).to.eq(401);
+          expect(res.body).to.be.a('object');
+          expect(res.body.message).to.eq('Unauthorized');
+          expect(Object.keys(res.body)).to.not.include('token');
+          done();
+        });
+    });
+  });
 });
