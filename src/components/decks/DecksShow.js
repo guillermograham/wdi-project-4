@@ -106,8 +106,11 @@ class DecksShow extends Component {
 
     return(
       <div>
-        { !this.hasFavourited() && <button onClick={this.favouriteDeck}>Favourite</button>}
-        { this.hasFavourited() && <button onClick={this.unFavouriteDeck}>Unfavourite</button>}
+        {this.state.deck.favourites && <div>
+          { !this.hasFavourited() && <button onClick={this.favouriteDeck}>Favourite</button>}
+          { this.hasFavourited() && <button onClick={this.unFavouriteDeck}>Unfavourite</button>}
+        </div> }
+
         <BackButton />
         <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>
         <div className="box cover">
@@ -147,11 +150,7 @@ class DecksShow extends Component {
 
             </div>
 
-            { this.state.deck.favourites.map((user, i) =>
-              <div key={i}>
-                  <p>{user.id}</p>
-              </div>
-            )}
+
 
 
 
