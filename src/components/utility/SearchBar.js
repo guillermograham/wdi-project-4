@@ -21,8 +21,8 @@ const SearchBar = ({ handleSort, handleSearch, handleLanguageFilter }) => {
       <div className="column is-one-third">
         <div className="select" onChange={handleSort}>
           <select>
-            <option value="favourites|asc">Favourites (High - Low)</option>
-            <option value="favourites|desc">Favourites (Low - High)</option>
+            <option value="favourites|desc">Favourites (High - Low)</option>
+            <option value="favourites|asc">Favourites (Low - High)</option>
             <option value="name|asc">Name (A - Z)</option>
             <option value="name|desc">Name (Z - A)</option>
           </select>
