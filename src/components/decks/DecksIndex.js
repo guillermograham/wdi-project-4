@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import Auth from '../../lib/Auth';
+import SearchBar from '../utility/SearchBar';
 
 class DecksIndex extends Component {
 
@@ -11,8 +12,10 @@ class DecksIndex extends Component {
 
   state = {
     decks: [],
-    sortBy: 'name',
-    sortDirection: ''
+    sortBy: 'favourites',
+    sortDirection: 'desc',
+    query: '',
+    languageFilter: ''
   }
 
   componentDidMount() {
@@ -29,16 +32,34 @@ class DecksIndex extends Component {
     this.setState({ sortBy, sortDirection });
   }
 
+  handleSearch = (e) => {
+    this.setState({ query: e.target.value });
+  }
+
+  handleLanguageFilter = (e) => {
+    this.setState({ languageFilter: e.target.value }, () => console.log(this.state));
+  }
+
   render() {
-    const { sortBy, sortDirection } = this.state;
+    const { sortBy, sortDirection, query, languageFilter } = this.state;
+    const regex = new RegExp(query, 'i');
+    const languageRegex = new RegExp(languageFilter);
+
     const orderedDecks = _.orderBy(this.state.decks, [sortBy], [sortDirection]);
+    const searchFilteredDecks = _.filter(orderedDecks, (deck) => regex.test(deck.name));
+    const decks = _.filter(searchFilteredDecks, (deck) => languageRegex.test(deck.language));
+
     return(
       <div>
         <div className="level">
-
+          <SearchBar
+            handleSort={this.handleSort}
+            handleSearch={this.handleSearch}
+            handleLanguageFilter={this.handleLanguageFilter}
+          />
         </div>
         <div className="columns is-multiline is-mobile">
-          { this.state.decks.map(deck =>
+          { decks.map(deck =>
             <div className="card column is-one-quarter" key={deck.id}>
               <Link to={`/decks/${deck.id}`}>
                 <div className="card-image">
