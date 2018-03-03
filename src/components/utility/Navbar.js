@@ -36,19 +36,20 @@ const Navbar = ({ history, toggleBurger, showBurger }) => {
             <Link to="/decks/new"><i className="far fa-file"></i> Create</Link>
           </div>
         </div>
+        <div className="navbar-end">
+          <div className="navbar-item">
+            { Auth.isAuthenticated() && <a href="#" className="" onClick={logout}><i className="fas fa-sign-out-alt"></i> Logout</a> }
+          </div>
+          <div className="navbar-item">
+            { !Auth.isAuthenticated() && <Link to="/login" className="">Login</Link> }
+          </div>
+          <div className="navbar-item">
+            { !Auth.isAuthenticated() && <Link to="/register" className="">Register</Link> }
+          </div>
+        </div>
       </div>
 
-      <div className="navbar-end">
-        <div className="navbar-item">
-          { Auth.isAuthenticated() && <a href="#" className="" onClick={logout}><i className="fas fa-sign-out-alt"></i> Logout</a> }
-        </div>
-        <div className="navbar-item">
-          { !Auth.isAuthenticated() && <Link to="/login" className="">Login</Link> }
-        </div>
-        <div className="navbar-item">
-          { !Auth.isAuthenticated() && <Link to="/register" className="">Register</Link> }
-        </div>
-      </div>
+
     </nav>
   );
 };
