@@ -40,13 +40,13 @@ const Navbar = ({ history }) => {
 
       <div className="navbar-end">
         <div className="navbar-item">
-          <div className="field is-grouped">
-            { !Auth.isAuthenticated() && <Link to="/login" className="">Login</Link> }
-            {' '}
-            { !Auth.isAuthenticated() && <Link to="/register" className="">Register</Link> }
-            {' '}
-            { Auth.isAuthenticated() && <a href="#" className="" onClick={logout}>Logout</a> }
-          </div>
+          { Auth.isAuthenticated() && <a href="#" className="" onClick={logout}>Logout</a> }
+        </div>
+        <div className="navbar-item">
+          { !Auth.isAuthenticated() && <Link to="/login" className="">Login</Link> }
+        </div>
+        <div className="navbar-item">
+          { !Auth.isAuthenticated() && <Link to="/register" className="">Register</Link> }
         </div>
       </div>
     </nav>
