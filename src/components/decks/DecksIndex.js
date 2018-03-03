@@ -35,11 +35,7 @@ class DecksIndex extends Component {
     return(
       <div>
         <div className="level">
-          <button className="button is-primary">
-            <Link to="/decks/new">
-              <i className="fa fa-plus" aria-hidden="true"></i> Add Deck
-            </Link>
-          </button>
+
         </div>
         <div className="columns is-multiline is-mobile">
           { this.state.decks.map(deck =>
