@@ -17,12 +17,23 @@ import 'font-awesome/css/font-awesome.css';
 
 class App extends React.Component {
 
+  state = {
+    showBurger: false
+  }
+
+  toggleBurger = () => {
+    return this.setState({ showBurger: !this.state.showBurger });
+  }
+
   render() {
     return (
       <Router>
         <div className="container">
           <header>
-            <Navbar />
+            <Navbar
+              toggleBurger={this.toggleBurger}
+              showBurger={this.state.showBurger}
+            />
           </header>
           <main>
             <Switch>
