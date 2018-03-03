@@ -27,7 +27,7 @@ const Navbar = ({ history }) => {
       <div className="navbar-menu" id="nav-menu">
         <div className="navbar-start">
           <div className="navbar-item">
-            { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}>Profile</Link> }
+            { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}><i class="far fa-user"></i> Profile</Link> }
           </div>
           <div className="navbar-item">
             <Link to="/decks">Decks</Link>
