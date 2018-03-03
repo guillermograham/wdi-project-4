@@ -110,7 +110,8 @@ class DecksShow extends Component {
         </div> }
 
         <BackButton />
-        <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>
+        { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>}
+        { Auth.getPayload().userId === this.state.deck.createdBy && <button onClick={this.deleteDeck}>Delete</button>}
         <div className="box cover">
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
@@ -156,7 +157,7 @@ class DecksShow extends Component {
           </div>}
         </div>}
         { this.state.deck.cards.length === this.state.currentIndex && <div>
-          <p className="bounceIn">Congratulations!</p>
+          <p className="animated bounceIn">Congratulations!</p>
         </div>}
       </div>
       </div>
