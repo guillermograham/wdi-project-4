@@ -108,7 +108,7 @@ class DecksNew extends Component {
               />
             </div>
             <div className="column is-one-fifth">
-              <button className="button is-primary">+</button>
+              <button className="button is-primary"><i class="fas fa-plus"></i></button>
             </div>
           </div>
         </form>
