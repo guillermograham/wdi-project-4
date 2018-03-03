@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 
 import Auth from '../../lib/Auth';
 
@@ -9,7 +10,9 @@ class DecksIndex extends Component {
   // using transform-class-properties in Babel, so don't need to define a constructor
 
   state = {
-    decks: []
+    decks: [],
+    sortBy: 'name',
+    sortDirection: ''
   }
 
   componentDidMount() {
@@ -21,7 +24,14 @@ class DecksIndex extends Component {
       .catch(err => console.log(err));
   }
 
+  handleSort = (e) => {
+    const [sortBy, sortDirection] = e.target.value.split('|');
+    this.setState({ sortBy, sortDirection });
+  }
+
   render() {
+    const { sortBy, sortDirection } = this.state;
+    const orderedDecks = _.orderBy(this.state.decks, [sortBy], [sortDirection]);
     return(
       <div>
         <div className="level">
