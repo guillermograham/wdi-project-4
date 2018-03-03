@@ -27,20 +27,20 @@ const Navbar = ({ history }) => {
       <div className="navbar-menu" id="nav-menu">
         <div className="navbar-start">
           <div className="navbar-item">
-            { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}><i class="far fa-user"></i> Profile</Link> }
+            { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}><i className="far fa-user"></i> Profile</Link> }
           </div>
           <div className="navbar-item">
-            <Link to="/decks">Decks</Link>
+            <Link to="/decks"><i className="fas fa-book"></i> Decks</Link>
           </div>
           <div className="navbar-item">
-            <Link to="/decks/new">Create</Link>
+            <Link to="/decks/new"><i className="far fa-file"></i> Create</Link>
           </div>
         </div>
       </div>
 
       <div className="navbar-end">
         <div className="navbar-item">
-          { Auth.isAuthenticated() && <a href="#" className="" onClick={logout}>Logout</a> }
+          { Auth.isAuthenticated() && <a href="#" className="" onClick={logout}><i class="fas fa-sign-out-alt"></i> Logout</a> }
         </div>
         <div className="navbar-item">
           { !Auth.isAuthenticated() && <Link to="/login" className="">Login</Link> }
