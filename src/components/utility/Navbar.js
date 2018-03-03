@@ -27,8 +27,13 @@ const Navbar = ({ history }) => {
       <div className="navbar-menu" id="nav-menu">
         <div className="navbar-start">
           <div className="navbar-item">
+            { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}>Profile</Link> }
+          </div>
+          <div className="navbar-item">
             <Link to="/decks">Decks</Link>
-            { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}>My profile</Link> }
+          </div>
+          <div className="navbar-item">
+            <Link to="/decks/new">Create</Link>
           </div>
         </div>
       </div>
