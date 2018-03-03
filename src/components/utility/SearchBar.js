@@ -2,10 +2,10 @@ import React from 'react';
 
 const SearchBar = ({ handleSort, handleSearch, handleLanguageFilter }) => {
   return(
-    <div className="columns is-mobile">
-      <div className="column is-one-third">
+    <div className="level">
+      <div className="level-item is-tablet">
         <div className="select" onChange={handleLanguageFilter}>
-          <select>
+          <select className="search-items">
             <option value="">All languages</option>
             <option value="English">English</option>
             <option value="French">French</option>
@@ -18,9 +18,9 @@ const SearchBar = ({ handleSort, handleSearch, handleLanguageFilter }) => {
           </select>
         </div>
       </div>
-      <div className="column is-one-third">
+      <div className="level-item is-tablet">
         <div className="select" onChange={handleSort}>
-          <select>
+          <select className="search-items">
             <option value="favourites|desc">Favourites (High - Low)</option>
             <option value="favourites|asc">Favourites (Low - High)</option>
             <option value="name|asc">Name (A - Z)</option>
@@ -28,8 +28,8 @@ const SearchBar = ({ handleSort, handleSearch, handleLanguageFilter }) => {
           </select>
         </div>
       </div>
-      <div className="column is-one-third">
-        <input className="input" type="text" placeholder="&#xF002;" onChange={handleSearch} />
+      <div className="level-item is-tablet">
+        <input className="input search-items" type="text" placeholder="&#xF002;" onChange={handleSearch} />
       </div>
     </div>
   );

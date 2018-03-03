@@ -51,16 +51,14 @@ class DecksIndex extends Component {
 
     return(
       <div>
-        <div className="level">
-          <SearchBar
-            handleSort={this.handleSort}
-            handleSearch={this.handleSearch}
-            handleLanguageFilter={this.handleLanguageFilter}
-          />
-        </div>
+        <SearchBar
+          handleSort={this.handleSort}
+          handleSearch={this.handleSearch}
+          handleLanguageFilter={this.handleLanguageFilter}
+        />
         <div className="columns is-multiline is-mobile">
           { decks.map(deck =>
-            <div className="card column is-one-quarter" key={deck.id}>
+            <div className="card column is-one-quarter is-half-tablet" key={deck.id}>
               <Link to={`/decks/${deck.id}`}>
                 <div className="card-image">
                   <figure className="image is-480x480">
