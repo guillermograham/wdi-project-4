@@ -4,6 +4,7 @@ const User = require('../models/user');
 function decksIndex(req, res, next) {
   Deck
     .find()
+    .populate('favourites')
     .exec()
     .then(decks => res.json(decks))
     .catch(next);

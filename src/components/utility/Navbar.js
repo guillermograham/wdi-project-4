@@ -15,14 +15,24 @@ const Navbar = ({ history }) => {
 
 
 
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
         <h1><Link to="/">AppName</Link></h1>
+        <div className="navbar-burger burger" data-target="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <div className="navbar-item">
-        <Link to="/decks">Decks</Link>
-        { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}>My profile</Link> }
+      <div className="navbar-menu" id="nav-menu">
+        <div className="navbar-start">
+          <div className="navbar-item">
+            <Link to="/decks">Decks</Link>
+            { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}>My profile</Link> }
+          </div>
+        </div>
       </div>
+
       <div className="navbar-end">
         <div className="navbar-item">
           <div className="field is-grouped">
@@ -34,7 +44,6 @@ const Navbar = ({ history }) => {
           </div>
         </div>
       </div>
-
     </nav>
   );
 };
