@@ -104,8 +104,8 @@ class DecksShow extends Component {
 
     return(
       <div>
-        {this.state.deck.favourites && <div>
-          { !this.hasFavourited() && <button onClick={this.favouriteDeck}>Favourite</button>}
+        {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
+          { !this.hasFavourited() &&  <button onClick={this.favouriteDeck}>Favourite</button>}
           { this.hasFavourited() && <button onClick={this.unFavouriteDeck}>Unfavourite</button>}
         </div> }
 
@@ -156,8 +156,12 @@ class DecksShow extends Component {
 
           </div>}
         </div>}
-        { this.state.deck.cards.length === this.state.currentIndex && <div>
+        { this.state.deck.cards.length === this.state.currentIndex && this.state.currentIndex > 0 && <div>
           <p className="animated bounceIn">Congratulations!</p>
+        </div>}
+        { this.state.deck.cards.length === 0 && <div>
+          <p>There are no cards in this deck</p>
+          { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Add cards</Link>}
         </div>}
       </div>
       </div>
