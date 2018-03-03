@@ -29,7 +29,7 @@ const SearchBar = ({ handleSort, handleSearch, handleLanguageFilter }) => {
         </div>
       </div>
       <div className="level-item is-tablet">
-        <input className="input search-items" type="text" placeholder="&#xF002;" onChange={handleSearch} />
+        <input className="input search-items fontAwesome" type="text" placeholder="&#xF002;" onChange={handleSearch} />
       </div>
     </div>
   );
