@@ -7,14 +7,14 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
     <div>
       <div>
         { deck.cards && deck.cards.map((card, i) =>
-          <div key={ i } className="columns is-mobile">
-            <div className="column">
+          <div key={ i } className="cards-list">
+            <div className="">
               <p>{card.question}</p>
             </div>
-            <div className="column">
+            <div className="">
               <p>{card.answer}</p>
             </div>
-            <div className="column is-one-fifth">
+            <div className="">
               <button className="delete" onClick={ () => handleCardDelete(i) }>
                 Delete
               </button>
@@ -22,12 +22,12 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
           </div>
         )}
       </div>
-      <form onSubmit={handleCardSubmit}>
-        <div className="columns is-mobile">
-          <div className="column">
+      <form className="decks-form-outside" onSubmit={handleCardSubmit}>
+        <div className="cards-list">
+          <div className="new-card-form">
             <input
               type="text"
-              className="input"
+              className="input new-card"
               id="question"
               name="question"
               placeholder="Question"
@@ -35,10 +35,10 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
               onChange={handleCardChange}
             />
           </div>
-          <div className="column">
+          <div className="">
             <input
               type="text"
-              className="input"
+              className="input new-card"
               id="answer"
               name="answer"
               placeholder="Answer"
@@ -46,8 +46,8 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
               onChange={handleCardChange}
             />
           </div>
-          <div className="column is-one-fifth">
-            <button className="button is-primary"><i className="fas fa-plus"></i></button>
+          <div className="control">
+            <button className="add-button">+</button>
           </div>
         </div>
       </form>

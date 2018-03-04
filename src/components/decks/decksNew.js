@@ -66,6 +66,7 @@ class DecksNew extends Component {
           errors={this.state.errors}
         />
         <CardsList
+          className="decks-form"
           handleCardChange={this.handleCardChange}
           handleCardSubmit={this.handleCardSubmit}
           handleCardDelete={this.handleCardDelete}
@@ -73,8 +74,8 @@ class DecksNew extends Component {
           newCard={this.state.newCard}
           errors={this.state.errors}
         />
-        <div>
-          <button disabled={formIsInvalid} className="button is-primary" onClick={this.handleSubmit}>Save</button>
+        <div className="decks-form">
+          <button disabled={formIsInvalid} className="button is-primary decks-form" onClick={this.handleSubmit}>Save</button>
         </div>
       </div>
     );

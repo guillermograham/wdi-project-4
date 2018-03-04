@@ -2,6 +2,11 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+// @font-face {
+//   font-family: "Gilroy";
+//   src: url("Gilroy-Light.otf");
+// }
+
 .buttons {
   display: flex;
   align-items: center;
@@ -149,5 +154,61 @@
   .answer-button {
     height: 50%;
     width: 45%;
+  }
+
+  // CREATE PAGE
+
+  .decks-form {
+    margin: 0 auto;
+    width: 280px;
+  }
+
+  .placeholder {
+    color: light-grey;
+  }
+
+  // .decks-form-outside {
+  //   margin-bottom: 20px;
+  // }
+
+  .cards-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 280px;
+  }
+
+  .decks-form-outside {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 280px;
+  }
+
+  .new-card {
+    width: 140px;
+  }
+
+  .new-card-form {
+    margin-bottom: 20px;
+  }
+
+  .add-button {
+    display: inline-block;
+    border: 1px solid black;
+    height: 36px;
+    width: 36px;
+  }
+
+  .add-button-div {
+    margin-top: 20px;
+  }
+
+  .error {
+    height: 20px;
+    font-size: 10px;
+    margin: 0 auto;
+    width: 280px;
   }
 }

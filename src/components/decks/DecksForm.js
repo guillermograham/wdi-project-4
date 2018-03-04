@@ -5,17 +5,19 @@ import React from 'react';
 const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
   return(
     <form onSubmit={handleSubmit} className="col-md-6">
-      <div className="control">
+      <div className="control decks-form decks-form-outside">
         <input
           type="text"
-          className="input"
+          className="input decks-form"
           id="name"
           name="name"
           placeholder="Name"
           value={deck.name}
           onChange={handleChange}
         />
-        {errors.name && <div className="error">{errors.name}</div>}
+      </div>
+      <div className="error">
+        {errors.name && <div>{errors.name}</div>}
       </div>
       {/* <div className="control">
         <input
@@ -29,15 +31,16 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
         />
         {errors.language && <div>{errors.language}</div>}
       </div> */}
-      <div className="control">
-        <div className="select">
+      <div className="control decks-form decks-form-outside">
+        <div className="select decks-form">
           <select
             id="language"
             name="language"
+            className="decks-form"
             value={deck.language}
             onChange={handleChange}
           >
-            <option value="" disabled>Please select a language</option>
+            <option value="" className="placeholder" disabled>Please select a language</option>
             <option>English</option>
             <option>French</option>
             <option>German</option>
@@ -47,8 +50,10 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
             <option>Russian</option>
             <option>Spanish</option>
           </select>
-          {errors.language && <div className="error">{errors.language}</div>}
         </div>
+      </div>
+      <div className="error">
+        {errors.language && <div className="error">{errors.language}</div>}
       </div>
       {/* <div>
         <button className="button is-primary">Save</button>
