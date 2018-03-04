@@ -9,8 +9,6 @@ class DecksNew extends Component {
   state = {
     deck: {
       name: '',
-      image: '',
-      level: '',
       language: '',
       cards: []
     },

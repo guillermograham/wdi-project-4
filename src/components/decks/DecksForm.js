@@ -17,7 +17,7 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
         />
         {errors.name && <small>{errors.name}</small>}
       </div>
-      <div className="control">
+      {/* <div className="control">
         <input
           type="text"
           className="input"
@@ -28,21 +28,26 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
           onChange={handleChange}
         />
         {errors.language && <small>{errors.language}</small>}
-      </div>
+      </div> */}
       <div className="control">
         <div className="select">
           <select
-            id="level"
-            name="level"
-            value={deck.level}
+            id="language"
+            name="language"
+            value={deck.language}
             onChange={handleChange}
           >
-            <option value="" disabled>Please select difficuly level</option>
-            <option>Beginner</option>
-            <option>Intermediate</option>
-            <option>Advanced</option>
+            <option value="" disabled>Please select a language</option>
+            <option>English</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Italian</option>
+            <option>Portuguese</option>
+            <option>Romanian</option>
+            <option>Russian</option>
+            <option>Spanish</option>
           </select>
-          {errors.level && <small>{errors.level}</small>}
+          {errors.language && <small>{errors.language}</small>}
         </div>
       </div>
       {/* <div>
