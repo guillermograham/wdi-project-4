@@ -78,105 +78,165 @@ User
         createdBy: users[2]._id
       },{
         name: 'Numbers',
-        language: '',
+        language: 'French',
         cards: [{
           question: '1',
-          answer: ''
+          answer: 'Un'
         },{
           question: '2',
-          answer: ''
+          answer: 'Deux'
         },{
           question: '3',
-          answer: ''
+          answer: 'Trois'
         },{
           question: '4',
-          answer: ''
+          answer: 'Quatre'
         },{
           question: '5',
-          answer: ''
+          answer: 'Cinq'
         }],
         createdBy: users[2]._id
       },{
         name: 'Numbers',
-        language: '',
+        language: 'German',
         cards: [{
           question: '1',
-          answer: ''
+          answer: 'Eins'
         },{
           question: '2',
-          answer: ''
+          answer: 'Zwei'
         },{
           question: '3',
-          answer: ''
+          answer: 'Drei'
         },{
           question: '4',
-          answer: ''
+          answer: 'Vier'
         },{
           question: '5',
-          answer: ''
+          answer: 'Fünf'
         }],
         createdBy: users[2]._id
       },{
         name: 'Numbers',
-        language: '',
+        language: 'Portuguese',
         cards: [{
           question: '1',
-          answer: ''
+          answer: 'Um'
         },{
           question: '2',
-          answer: ''
+          answer: 'Dois'
         },{
           question: '3',
-          answer: ''
+          answer: 'Três'
         },{
           question: '4',
-          answer: ''
+          answer: 'Quatro'
         },{
           question: '5',
-          answer: ''
+          answer: 'Cinco'
         }],
         createdBy: users[2]._id
       },{
         name: 'Numbers',
-        language: '',
+        language: 'Romanian',
         cards: [{
           question: '1',
-          answer: ''
+          answer: 'Unu'
         },{
           question: '2',
-          answer: ''
+          answer: 'Doi'
         },{
           question: '3',
-          answer: ''
+          answer: 'Trei'
         },{
           question: '4',
-          answer: ''
+          answer: 'Patru'
         },{
           question: '5',
-          answer: ''
+          answer: 'Cinci'
         }],
         createdBy: users[2]._id
       },{
-        name: 'Numbers',
-        language: '',
+        name: 'Fruit',
+        language: 'Spanish',
         cards: [{
-          question: '1',
-          answer: ''
+          question: 'Apple',
+          answer: 'Manzana'
         },{
-          question: '2',
-          answer: ''
+          question: 'Orange',
+          answer: 'Naranja'
         },{
-          question: '3',
-          answer: ''
+          question: 'Banana',
+          answer: 'Plátano'
         },{
-          question: '4',
-          answer: ''
+          question: 'Cherry',
+          answer: 'Cereza'
         },{
-          question: '5',
-          answer: ''
+          question: 'Mango',
+          answer: 'Mango'
         }],
         createdBy: users[2]._id
-      }, ]);
+      },{
+        name: 'Fruit',
+        language: 'French',
+        cards: [{
+          question: 'Apple',
+          answer: 'Pomme'
+        },{
+          question: 'Orange',
+          answer: 'Orange'
+        },{
+          question: 'Banana',
+          answer: 'Banane'
+        },{
+          question: 'Cherry',
+          answer: 'Cerise'
+        },{
+          question: 'Mango',
+          answer: 'Mangue'
+        }],
+        createdBy: users[2]._id
+      },{
+        name: 'Fruit',
+        language: 'German',
+        cards: [{
+          question: 'Apple',
+          answer: 'Apfel'
+        },{
+          question: 'Orange',
+          answer: 'Orange'
+        },{
+          question: 'Banana',
+          answer: 'Banane'
+        },{
+          question: 'Cherry',
+          answer: 'Kirsche'
+        },{
+          question: 'Mango',
+          answer: 'Mango'
+        }],
+        createdBy: users[2]._id
+      },{
+        name: 'Fruit',
+        language: '',
+        cards: [{
+          question: 'Apple',
+          answer: 'Mela'
+        },{
+          question: 'Orange',
+          answer: 'Arancia'
+        },{
+          question: 'Banana',
+          answer: 'Banana'
+        },{
+          question: 'Cherry',
+          answer: 'Ciliegia'
+        },{
+          question: 'Mango',
+          answer: 'Mango'
+        }],
+        createdBy: users[2]._id
+      } ]);
   })
   .then((decks) => {
     // console.log(decks);
