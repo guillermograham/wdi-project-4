@@ -29,9 +29,26 @@
 }
 
 .search-items {
-  width: 210px;
+  width: 220px;
 }
 
 .fontAwesome {
   font-family: 'Helvetica', FontAwesome, sans-serif;
+}
+
+.flag {
+  width: 100px;
+}
+
+.card {
+  // margin: 20px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  width: 220px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
