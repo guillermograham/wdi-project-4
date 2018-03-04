@@ -218,7 +218,7 @@ User
         createdBy: users[2]._id
       },{
         name: 'Fruit',
-        language: '',
+        language: 'Italian',
         cards: [{
           question: 'Apple',
           answer: 'Mela'
