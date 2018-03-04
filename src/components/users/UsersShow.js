@@ -27,27 +27,24 @@ class UsersShow extends Component {
     return(
       <div>
         <h2>My decks:</h2>
-        { this.state.user.myDecks && this.state.user.myDecks.map((deck) =>
-          <Card
-            deck={deck}
-            key={deck.id}
-          />
-          // <div key={i}>
-          //   <p>{deck.name}</p>
-          //   <p>{deck.language}</p>
-          // </div>
-        )}
+        <div className="container grid">
+          { this.state.user.myDecks && this.state.user.myDecks.map((deck) =>
+            <Card
+              deck={deck}
+              key={deck.id}
+            />
+          )}
+        </div>
+
         <h2>My favourites:</h2>
-        { this.state.user && this.state.user.favourites.map((deck, i) =>
-          <Card
-            deck={deck}
-            key={deck.id}
-          />
-          // <div key={i}>
-          //   <p>{deck.name}</p>
-          //   <p>{deck.language}</p>
-          // </div>
-        )}
+        <div className="container grid">
+          { this.state.user && this.state.user.favourites.map((deck) =>
+            <Card
+              deck={deck}
+              key={deck.id}
+            />
+          )}
+        </div>
       </div>
     );
   }
