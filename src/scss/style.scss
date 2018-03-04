@@ -17,6 +17,7 @@
 
 .cover {
   margin: 0 auto;
+  margin-top: 40px;
   max-width: 640px;
 }
 
@@ -52,4 +53,27 @@
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 900px;
+}
+
+.deck-information {
+  display: flex;
+  justify-content: center;
+}
+
+.deck-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.show-buttons {
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 90px;
+}
+
+@media only screen and (max-width: 640px) {
+  .show-buttons {
+    font-size: 10px;
+    width: 50px;
+  }
 }

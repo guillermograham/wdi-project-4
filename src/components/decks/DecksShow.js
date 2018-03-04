@@ -107,16 +107,40 @@ class DecksShow extends Component {
 
     return(
       <div>
-        {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
-          { !this.hasFavourited() &&  <button onClick={this.favouriteDeck}>Favourite</button>}
-          { this.hasFavourited() && <button onClick={this.unFavouriteDeck}>Unfavourite</button>}
-        </div> }
 
-        <BackButton />
-        { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>}
-        { Auth.getPayload().userId === this.state.deck.createdBy && <button onClick={this.deleteDeck}>Delete</button>}
+
+
+
         <div className="box cover">
           <h3>{this.state.deck.name}</h3>
+          <div className="level deck-information">
+            <div className="">
+              <p><i className="far fa-flag"></i> {this.state.deck.language}</p>
+            </div>
+            <div className="">
+              { this.state.deck.favourites && <div>
+                { this.state.deck.favourites.length !== 1 && <p><i className="far fa-star"></i> {this.state.deck.favourites.length} favourites</p>}
+                { this.state.deck.favourites.length === 1 && <p><i className="far fa-star"></i> {this.state.deck.favourites.length} favourite</p>}
+              </div>}
+            </div>
+          </div>
+          <div className="level deck-buttons">
+            <div className="">
+              <BackButton />
+            </div>
+            {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
+              {/* {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div> */}
+              { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="show-buttons">Favourite</button>}
+              { this.hasFavourited() && <button onClick={this.unFavouriteDeck} className="show-buttons">Unfavourite</button>}
+              {/* </div> } */}
+            </div>}
+            { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
+              <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link is-outlined edit-button show-buttons"><i className="fas fa-edit"></i> Edit</Link>
+            </div>}
+            { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
+              <button onClick={this.deleteDeck} className="button is-danger delete-button is-outlined show-buttons"><i className="far fa-trash-alt"></i> Delete</button>
+            </div>}
+          </div>
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
             <div className="box flashcard">
