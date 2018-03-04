@@ -10,6 +10,8 @@ import BackButton from '../utility/BackButton';
 class DecksShow extends Component {
   state = {
     deck: {
+      name: '',
+      language: '',
       cards: [],
       favourites: []
     },
@@ -32,6 +34,7 @@ class DecksShow extends Component {
         headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
       })
       .then(res => this.setState({ deck: res.data }, () => {
+        console.log(res.data);
         console.log('state',this.state);
       }))
       .catch(err => console.log(err));
@@ -113,6 +116,7 @@ class DecksShow extends Component {
         { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Edit</Link>}
         { Auth.getPayload().userId === this.state.deck.createdBy && <button onClick={this.deleteDeck}>Delete</button>}
         <div className="box cover">
+          <h3>{this.state.deck.name}</h3>
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
             <div className="box flashcard">
