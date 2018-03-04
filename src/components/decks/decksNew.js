@@ -67,52 +67,14 @@ class DecksNew extends Component {
           deck ={this.state.deck}
           errors={this.state.errors}
         />
-        <div>
-          { this.state.deck.cards && this.state.deck.cards.map((card, i) =>
-            <div key={ i } className="columns is-mobile">
-              <div className="column">
-                <p>{card.question}</p>
-              </div>
-              <div className="column">
-                <p>{card.answer}</p>
-              </div>
-              <div className="column is-one-fifth">
-                <button className="delete" onClick={ () => this.handleCardDelete(i) }>
-                  Delete
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
-        <form onSubmit={this.handleCardSubmit}>
-          <div className="columns is-mobile">
-            <div className="column">
-              <input
-                type="text"
-                className="input"
-                id="question"
-                name="question"
-                placeholder="Question"
-                value={this.state.newCard.question}
-                onChange={this.handleCardChange}
-              />
-            </div>
-            <div className="column">
-              <input
-                type="text"
-                className="input"
-                id="answer"
-                name="answer"
-                placeholder="Answer"
-                value={this.state.newCard.answer}
-                onChange={this.handleCardChange}
-              />
-            </div>
-            <div className="column is-one-fifth">
-              <button className="button is-primary"><i class="fas fa-plus"></i></button>
-            </div>
-          </div>
-        </form>
+        <CardsList
+          handleCardChange={this.handleCardChange}
+          handleCardSubmit={this.handleCardSubmit}
+          handleCardDelete={this.handleCardDelete}
+          deck={this.state.deck}
+          newCard={this.state.newCard}
+          errors={this.state.errors}
+        />
         <div>
           <button disabled={formIsInvalid} className="button is-primary" onClick={this.handleSubmit}>Save</button>
         </div>
