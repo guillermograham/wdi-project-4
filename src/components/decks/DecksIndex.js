@@ -5,6 +5,7 @@ import _ from 'lodash';
 
 import Auth from '../../lib/Auth';
 import SearchBar from '../utility/SearchBar';
+import Card from '../utility/Card';
 
 class DecksIndex extends Component {
 
@@ -58,22 +59,12 @@ class DecksIndex extends Component {
         />
         <div className="container grid">
           { decks.map(deck =>
-            <div className="card" key={deck.id}>
-              <Link to={`/decks/${deck.id}`}>
-              <div className="card-content">
-                <h3 className="title is-4">{deck.name}</h3>
-                <img className="flag" src={`../../../assets/images/flags/${deck.language}.svg`} alt="France flag (bevelled)" title="France flag (bevelled) by  Firkin ( https://openclipart.org/user-detail/Firkin )" />
-                <p><i className="far fa-flag"></i> {deck.language}</p>
-                { deck.favourites.length !== 1 && <p><i className="far fa-star"></i> {deck.favourites.length} favourites</p>}
-                { deck.favourites.length === 1 && <p><i className="far fa-star"></i> {deck.favourites.length} favourite</p>}
-              </div>
-              </Link>
-            </div>
+            <Card
+              deck={deck}
+              key={deck.id}
+            />
           )}
         </div>
-
-
-
       </div>
     );
   }
