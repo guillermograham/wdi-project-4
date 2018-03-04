@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 import { Link } from 'react-router-dom';
+import Card from '../utility/Card';
 
 // import BackButton from '../utility/BackButton';
 
@@ -26,18 +27,26 @@ class UsersShow extends Component {
     return(
       <div>
         <h2>My decks:</h2>
-        { this.state.user && this.state.user.myDecks.map((deck, i) =>
-          <div key={i}>
-            <p>{deck.name}</p>
-            <p>{deck.language}</p>
-          </div>
+        { this.state.user.myDecks && this.state.user.myDecks.map((deck) =>
+          <Card
+            deck={deck}
+            key={deck.id}
+          />
+          // <div key={i}>
+          //   <p>{deck.name}</p>
+          //   <p>{deck.language}</p>
+          // </div>
         )}
         <h2>My favourites:</h2>
         { this.state.user && this.state.user.favourites.map((deck, i) =>
-          <div key={i}>
-            <p>{deck.name}</p>
-            <p>{deck.language}</p>
-          </div>
+          <Card
+            deck={deck}
+            key={deck.id}
+          />
+          // <div key={i}>
+          //   <p>{deck.name}</p>
+          //   <p>{deck.language}</p>
+          // </div>
         )}
       </div>
     );
