@@ -95,8 +95,8 @@ class DecksShow extends Component {
     const index = this.state.currentIndex;
     const newArray = this.state.deck.cards.slice();
     newArray.push(this.state.deck.cards[index]);
-    console.log(newArray);
-    this.setState({ deck: { cards: newArray }, currentIndex: this.state.currentIndex + 1, showAnswer: false }, () => {
+    const deck = Object.assign({}, this.state.deck, { cards: newArray });
+    this.setState({ deck , currentIndex: this.state.currentIndex + 1, showAnswer: false }, () => {
       console.log('cards: ', this.state.deck.cards.length, 'currentIndex: ', this.state.currentIndex);
     });
   }
@@ -107,20 +107,16 @@ class DecksShow extends Component {
 
     return(
       <div>
-
-
-
-
         <div className="box cover">
-          <h3>{this.state.deck.name}</h3>
+          <h3 className="show-title">{this.state.deck.name}</h3>
           <div className="level deck-information">
             <div className="">
-              <p><i className="far fa-flag"></i> {this.state.deck.language}</p>
+              <p className="information"><i className="far fa-flag"></i> {this.state.deck.language}</p>
             </div>
             <div className="">
               { this.state.deck.favourites && <div>
-                { this.state.deck.favourites.length !== 1 && <p><i className="far fa-star"></i> {this.state.deck.favourites.length} favourites</p>}
-                { this.state.deck.favourites.length === 1 && <p><i className="far fa-star"></i> {this.state.deck.favourites.length} favourite</p>}
+                { this.state.deck.favourites.length !== 1 && <p className="information"><i className="far fa-star"></i> {this.state.deck.favourites.length} favourites</p>}
+                { this.state.deck.favourites.length === 1 && <p className="information"><i className="far fa-star"></i> {this.state.deck.favourites.length} favourite</p>}
               </div>}
             </div>
           </div>
@@ -130,15 +126,15 @@ class DecksShow extends Component {
             </div>
             {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
               {/* {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div> */}
-              { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="show-buttons">Favourite</button>}
-              { this.hasFavourited() && <button onClick={this.unFavouriteDeck} className="show-buttons">Unfavourite</button>}
+              { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="button is-link show-buttons"><i className="far fa-star show-buttons-icon"></i> Favourite</button>}
+              { this.hasFavourited() && <button onClick={this.unFavouriteDeck} className="button is-link is-outlined show-buttons"><i className="far fa-star show-buttons-icon"></i> Unfavourite</button>}
               {/* </div> } */}
             </div>}
             { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
-              <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link is-outlined edit-button show-buttons"><i className="fas fa-edit"></i> Edit</Link>
+              <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link is-outlined edit-button show-buttons"><i className="fas fa-edit show-buttons-icon"></i> Edit</Link>
             </div>}
             { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
-              <button onClick={this.deleteDeck} className="button is-danger delete-button is-outlined show-buttons"><i className="far fa-trash-alt"></i> Delete</button>
+              <button onClick={this.deleteDeck} className="button is-danger delete-button is-outlined show-buttons"><i className="far fa-trash-alt show-buttons-icon"></i> Delete</button>
             </div>}
           </div>
         {this.state.deck.cards && <div>
@@ -157,7 +153,7 @@ class DecksShow extends Component {
 
 
 
-                { !this.state.showAnswer && <button onClick={this.showAnswer} className="answer-button button is-primary">
+                { !this.state.showAnswer && <button onClick={this.showAnswer} className="reveal-button button is-primary">
                   Reveal
                 </button>}
 
