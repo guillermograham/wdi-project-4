@@ -24,16 +24,16 @@ const Navbar = ({ history, toggleBurger, showBurger }) => {
           <span></span>
         </div>
       </div>
-      <div className={`${(showBurger ? 'is-active' : '')} navbar-menu`} id="nav-menu">
+      <div className={`${(showBurger ? 'is-active' : '')} navbar-menu`} onClick={toggleBurger} id="nav-menu">
         <div className="navbar-start">
           <div className="navbar-item">
             { Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().userId}`}><i className="far fa-user"></i> Profile</Link> }
           </div>
           <div className="navbar-item">
-            <Link to="/decks"><i className="fas fa-book"></i> Decks</Link>
+            { Auth.isAuthenticated() && <Link to="/decks"><i className="fas fa-book"></i> Decks</Link> }
           </div>
           <div className="navbar-item">
-            <Link to="/decks/new"><i className="far fa-file"></i> Create</Link>
+            { Auth.isAuthenticated() && <Link to="/decks/new"><i className="far fa-file"></i> Create</Link> }
           </div>
         </div>
         <div className="navbar-end">

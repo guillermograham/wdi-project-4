@@ -75,7 +75,7 @@ class DecksNew extends Component {
           errors={this.state.errors}
         />
         <div className="decks-form">
-          <button disabled={formIsInvalid} className="button is-primary decks-form" onClick={this.handleSubmit}>Save</button>
+          <button disabled={formIsInvalid} className="button is-primary decks-form save-button" onClick={this.handleSubmit}>Save</button>
         </div>
       </div>
     );

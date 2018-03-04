@@ -47,7 +47,7 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
             />
           </div>
           <div className="control">
-            <button className="add-button">+</button>
+            <button className="add-button"><i className="fas fa-plus"></i></button>
           </div>
         </div>
       </form>

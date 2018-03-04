@@ -14,6 +14,7 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
           placeholder="Name"
           value={deck.name}
           onChange={handleChange}
+          autoFocus
         />
       </div>
       <div className="error">
