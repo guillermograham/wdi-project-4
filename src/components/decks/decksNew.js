@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 import DecksForm from './DecksForm';
+import CardsList from './CardsList';
 import Auth from '../../lib/Auth';
 
 class DecksNew extends Component {

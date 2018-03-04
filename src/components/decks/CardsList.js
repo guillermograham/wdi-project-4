@@ -47,7 +47,7 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
             />
           </div>
           <div className="column is-one-fifth">
-            <button className="button is-primary">+</button>
+            <button className="button is-primary"><i className="fas fa-plus"></i></button>
           </div>
         </div>
       </form>
