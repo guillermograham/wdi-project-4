@@ -127,7 +127,7 @@ class DecksShow extends Component {
             {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
               {/* {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div> */}
               { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="button is-link show-buttons"><i className="far fa-star show-buttons-icon"></i> Favourite</button>}
-              { this.hasFavourited() && <button onClick={this.unFavouriteDeck} className="button is-link is-outlined show-buttons"><i className="far fa-star show-buttons-icon"></i> Unfavourite</button>}
+              { this.hasFavourited() && <button onClick={this.unFavouriteDeck} className="button is-link is-outlined show-buttons unfavourite-button"><i className="far fa-star show-buttons-icon"></i> Unfavourite</button>}
               {/* </div> } */}
             </div>}
             { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
