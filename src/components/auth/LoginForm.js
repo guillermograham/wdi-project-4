@@ -3,7 +3,7 @@ import React from 'react';
 const LoginForm = ({ handleChange, handleSubmit, user }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
+      <div className="form-group user-input">
         <input
           type="text"
           name="email"
@@ -13,7 +13,7 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group user-input">
         <input
           type="password"
           name="password"
@@ -23,7 +23,9 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
-      <button className="button is-primary">Login</button>
+      <div className="user-input">
+        <button className="button is-primary login-button">Login</button>
+      </div>
     </form>
   );
 };

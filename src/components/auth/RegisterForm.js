@@ -3,7 +3,7 @@ import React from 'react';
 const RegisterForm = ({ handleChange, handleSubmit, user }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <div className="form-group">
+      <div className="form-group user-input">
         <input
           type="text"
           name="username"
@@ -13,7 +13,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group user-input">
         <input
           type="text"
           name="email"
@@ -23,17 +23,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
-      <div className="form-group">
-        <input
-          type="text"
-          name="image"
-          placeholder="Image"
-          onChange={handleChange}
-          value={user.image}
-          className="input"
-        />
-      </div>
-      <div className="form-group">
+      <div className="form-group user-input">
         <input
           type="password"
           name="password"
@@ -43,7 +33,7 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
-      <div className="form-group">
+      <div className="form-group user-input">
         <input
           type="password"
           name="passwordConfirmation"
@@ -53,8 +43,9 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
-
-      <button className="button is-primary">Register</button>
+      <div className="user-input">
+        <button className="button is-primary login-button">Register</button>
+      </div>
     </form>
   );
 };
