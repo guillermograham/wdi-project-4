@@ -1,11 +1,35 @@
-* {
-  font-family: 'Open Sans', sans-serif;
-}
+// 1. Import the initial variables
+@import "bulma/sass/utilities/initial-variables";
+@import "bulma/sass/utilities/functions";
+
+// $link: purple;
+$primary: #9D44B5;
+$primary-invert: #fff;
+$link: #69DDFF;
+$danger: $orange;
+$background: white;
+$family-primary: 'Karla', sans-serif;
+
+// 5. Add new color variables to the color map.
+// @import "bulma/utilities/derived-variables.sass";
+// $addColors: (
+//   "twitter":($twitter, $twitter-invert),
+//   "linkedin": ($linkedin, $linkedin-invert),
+//   "github": ($github, $github-invert)
+// );
+// $colors: map-merge($colors, $addColors);
+
+// 6. Import the rest of Bulma
+@import "bulma/bulma";
 
 // @font-face {
 //   font-family: "Gilroy";
 //   src: url("Gilroy-Light.otf");
 // }
+
+h1 {
+  color: $primary;
+}
 
 .buttons {
   display: flex;
@@ -13,6 +37,17 @@
   justify-content: center;
 }
 
+header {
+  border-bottom: 1px solid $primary;
+  margin-bottom: 30px;
+}
+
+.navbar {
+  h1 {
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
 
 
 .end-message {
@@ -46,10 +81,12 @@
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 900px;
+  margin: 0 auto;
 }
 
 // Show page
 .cover {
+  background-color: $background;
   margin: 0 auto;
   margin-top: 40px;
   max-width: 640px;
@@ -186,6 +223,7 @@
 
 // PROFILE PAGE
 .profile {
+  background-color: $background;
   width: 900px;
 }
 
@@ -227,6 +265,10 @@
   }
 
   .unfavourite-button {
+    width: 120px;
+  }
+
+  .favourite-button {
     width: 120px;
   }
 

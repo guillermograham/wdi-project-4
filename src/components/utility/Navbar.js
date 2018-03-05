@@ -12,12 +12,9 @@ const Navbar = ({ history, toggleBurger, showBurger }) => {
   }
 
   return(
-
-
-
-    <nav className="navbar is-transparent" role="navigation" aria-label="main navigation">
+    <nav className="navbar is-transparent container" role="navigation" aria-label="main navigation">
       <div className="navbar-brand">
-        <h1><Link to="/">AppName</Link></h1>
+        <Link to="/" className="navbar-item"><h1>wordUp</h1></Link>
         <div className={`${(showBurger ? 'is-active' : '')} navbar-burger burger`} data-target="nav-menu" onClick={toggleBurger}>
           <span></span>
           <span></span>

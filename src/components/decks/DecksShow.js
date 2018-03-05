@@ -126,7 +126,7 @@ class DecksShow extends Component {
             </div>
             {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
               {/* {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div> */}
-              { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="button is-link show-buttons"><i className="far fa-star show-buttons-icon"></i> Favourite</button>}
+              { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="button is-link show-buttons favourite-button"><i className="far fa-star show-buttons-icon"></i> Favourite</button>}
               { this.hasFavourited() && <button onClick={this.unFavouriteDeck} className="button is-link is-outlined show-buttons unfavourite-button"><i className="far fa-star show-buttons-icon"></i> Unfavourite</button>}
               {/* </div> } */}
             </div>}
@@ -185,7 +185,7 @@ class DecksShow extends Component {
         </div>}
         { this.state.deck.cards.length === 0 && <div>
           <p className="end-message animated bounceIn">There are no cards in this deck</p>
-          { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link">Add cards</Link>}
+          { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-primary">Add cards</Link>}
         </div>}
       </div>
       </div>

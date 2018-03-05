@@ -56,7 +56,7 @@ class DecksIndex extends Component {
           handleSearch={this.handleSearch}
           handleLanguageFilter={this.handleLanguageFilter}
         />
-        <div className="container grid box profile">
+        <div className="grid box profile">
           { decks.map(deck =>
             <Card
               deck={deck}

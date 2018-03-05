@@ -28,24 +28,27 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div>
           <header>
             <Navbar
               toggleBurger={this.toggleBurger}
               showBurger={this.state.showBurger}
             />
           </header>
-          <main>
-            <Switch>
-              <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-              <Route path="/users/:userId" component={UsersShow} />
-              <Route path="/decks/:id/edit" component={DecksEdit} />
-              <Route path="/decks/new" component={DecksNew} />
-              <Route path="/decks/:id" component={DecksShow} />
-              <Route path="/decks" component={DecksIndex} />
-            </Switch>
-          </main>
+          <div className="container">
+
+            <main>
+              <Switch>
+                <Route path="/login" component={Login} />
+                <Route path="/register" component={Register} />
+                <Route path="/users/:userId" component={UsersShow} />
+                <Route path="/decks/:id/edit" component={DecksEdit} />
+                <Route path="/decks/new" component={DecksNew} />
+                <Route path="/decks/:id" component={DecksShow} />
+                <Route path="/decks" component={DecksIndex} />
+              </Switch>
+            </main>
+          </div>
         </div>
       </Router>
 
