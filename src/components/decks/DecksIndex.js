@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 import Auth from '../../lib/Auth';
@@ -57,7 +56,7 @@ class DecksIndex extends Component {
           handleSearch={this.handleSearch}
           handleLanguageFilter={this.handleLanguageFilter}
         />
-        <div className="container grid">
+        <div className="container grid box profile">
           { decks.map(deck =>
             <Card
               deck={deck}

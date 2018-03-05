@@ -189,6 +189,15 @@
   width: 900px;
 }
 
+@media only screen and (max-width: 900px) {
+
+  // PROFILE
+  .profile {
+    width: 600px;
+  }
+
+}
+
 @media only screen and (max-width: 640px) {
 
   .cover {
@@ -297,6 +306,10 @@
   }
 
   .login-button {
+    width: 280px;
+  }
+
+  .profile {
     width: 280px;
   }
 }
