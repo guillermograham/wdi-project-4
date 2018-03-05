@@ -28,7 +28,7 @@ class UsersShow extends Component {
   render() {
     return(
       <div>
-        <h2 className="title is-4">My decks:</h2>
+        <h2 className="title is-4 profile-title">My decks:</h2>
         <div className="container grid profile user-profile">
           { this.state.user.myDecks && this.state.user.myDecks.map((deck) =>
             <Card
