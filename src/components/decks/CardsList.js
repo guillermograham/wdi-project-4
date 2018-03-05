@@ -10,7 +10,7 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
     <div>
       <div>
         { deck.cards && deck.cards.map((card, i) =>
-          <div key={ i } className="cards-list">
+          <div key={ i } className="cards-list fadeIn animated">
             <div className="">
               <p>{card.question}</p>
             </div>
