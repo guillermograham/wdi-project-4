@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck, newCard, errors }) => {
+const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck, newCard }) => {
 
   const buttonIsInvalid = !(newCard.question && newCard.answer);
 

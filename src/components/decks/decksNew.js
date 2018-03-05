@@ -74,7 +74,6 @@ class DecksNew extends Component {
           handleCardDelete={this.handleCardDelete}
           deck={this.state.deck}
           newCard={this.state.newCard}
-          errors={this.state.errors}
         />
         <div className="decks-form">
           <button disabled={formIsInvalid} className="button is-primary decks-form save-button" onClick={this.handleSubmit}>Save</button>
