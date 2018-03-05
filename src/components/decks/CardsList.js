@@ -3,6 +3,9 @@ import React from 'react';
 
 
 const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck, newCard, errors }) => {
+
+  const buttonIsInvalid = !(newCard.question && newCard.answer);
+
   return(
     <div>
       <div>
@@ -47,7 +50,7 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
             />
           </div>
           <div className="control">
-            <button className="add-button"><i className="fas fa-plus"></i></button>
+            <button className="add-button" disabled={buttonIsInvalid}><i className="fas fa-plus"></i></button>
           </div>
         </div>
       </form>

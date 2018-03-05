@@ -15,10 +15,12 @@ class UsersShow extends Component {
   }
 
   componentDidMount() {
+    console.log('PROPS: ', this.props);
     Axios
       .get(`/api/users/${this.props.match.params.userId}`)
       .then(res => this.setState({ user: res.data }, () => {
         console.log(this.state.user);
+        console.log(res);
       }))
       .catch(err => console.log(err));
   }

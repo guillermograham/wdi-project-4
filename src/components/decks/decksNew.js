@@ -38,7 +38,9 @@ class DecksNew extends Component {
 
   handleCardChange = ({ target: { name, value }}) => {
     const newCard = Object.assign({}, this.state.newCard, { [name]: value});
-    this.setState({ newCard });
+    this.setState({ newCard }, () => {
+      console.log(this.state.newCard);
+    });
   }
 
   handleCardSubmit = (e) => {

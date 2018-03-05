@@ -37,11 +37,16 @@ class Login extends React.Component {
 
   render() {
     return (
-      <LoginForm
-        user={this.state.user}
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-      />
+      <div>
+        <div>
+          {this.state.errors && <p>{this.state.errors.message}</p>}
+        </div>
+        <LoginForm
+          user={this.state.user}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+      </div>
     );
   }
 }
