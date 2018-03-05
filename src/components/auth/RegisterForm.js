@@ -13,8 +13,8 @@ const RegisterForm = ({ handleChange, handleSubmit, user, errors }) => {
           className="input"
         />
       </div>
-      <div className="error">
-        {errors.username && <div>{errors.username}</div>}
+      <div className="error register-form-error-box">
+        {errors.username && <p className="error-message register-form-error fadeIn animated">{errors.username}</p>}
       </div>
       <div className="form-group user-input">
         <input
@@ -26,8 +26,8 @@ const RegisterForm = ({ handleChange, handleSubmit, user, errors }) => {
           className="input"
         />
       </div>
-      <div className="error">
-        {errors.email && <div>{errors.email}</div>}
+      <div className="error register-form-error-box">
+        {errors.email && <p className="error-message register-form-error fadeIn animated">{errors.email}</p>}
       </div>
       <div className="form-group user-input">
         <input
@@ -39,8 +39,8 @@ const RegisterForm = ({ handleChange, handleSubmit, user, errors }) => {
           className="input"
         />
       </div>
-      <div className="error">
-        {errors.password && <div>{errors.password}</div>}
+      <div className="error register-form-error-box">
+        {errors.password && <p className="error-message register-form-error fadeIn animated">{errors.password}</p>}
       </div>
       <div className="form-group user-input">
         <input
@@ -52,8 +52,8 @@ const RegisterForm = ({ handleChange, handleSubmit, user, errors }) => {
           className="input"
         />
       </div>
-      <div className="error">
-        {errors.passwordConfirmation && <div>{errors.passwordConfirmation}</div>}
+      <div className="error register-form-error-box">
+        {errors.passwordConfirmation && <p className="error-message register-form-error fadeIn animated">{errors.passwordConfirmation}</p>}
       </div>
       <div className="user-input">
         <button className="button is-primary login-button">Register</button>
