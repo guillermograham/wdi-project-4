@@ -11,7 +11,8 @@ class Login extends React.Component {
     user: {
       email: '',
       password: ''
-    }
+    },
+    errors: {}
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -28,7 +29,10 @@ class Login extends React.Component {
         Auth.setToken(res.data.token);
         this.props.history.push(`/users/${Auth.getPayload().userId}`);
       })
-      .catch(err => console.log(err));
+      .catch(err => this.setState({ errors: { message: err.response.data.message} }, () => {
+        console.log(err);
+        console.log(this.state);
+      }));
   }
 
   render() {
