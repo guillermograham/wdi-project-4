@@ -2,7 +2,7 @@ import React from 'react';
 
 const RegisterForm = ({ handleChange, handleSubmit, user, errors }) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="register-form">
       <div className="form-group user-input">
         <input
           type="text"

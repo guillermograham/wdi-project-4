@@ -2,6 +2,8 @@
 @import "bulma/sass/utilities/initial-variables";
 @import "bulma/sass/utilities/functions";
 
+
+
 // $link: purple;
 $primary: #FF88DC;
 $primary-invert: #fff;
@@ -27,7 +29,6 @@ $family-primary: 'Karla', sans-serif;
 //   font-family: "Gilroy";
 //   src: url("Gilroy-Light.otf");
 // }
-
 h1 {
   color: $primary;
 }
@@ -38,12 +39,49 @@ h1 {
   display: flex;
   justify-content: space-around;
   margin: 0 auto;
+  margin-top: 50px;
   width: 500px;
+}
+
+.front-title {
+  color: grey;
+  font-size: 30px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 .front-buttons {
   width: 200px;
 }
+
+.typewriter h2 {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
+}
+
+// .landingBackground {
+//   background-image: url('/assets/images/jumbotron.jpg');
+//   height: calc(100vh - 130px);
+//   width: 100%;
+// }
 
 .buttons {
   display: flex;
@@ -53,7 +91,7 @@ h1 {
 
 header {
   border-bottom: 1px solid $primary;
-  margin-bottom: 30px;
+  // margin-bottom: 30px;
 }
 
 .navbar {
@@ -199,7 +237,12 @@ h3 {
 .login-message {
   height: 20px;
   margin: 0 auto;
+  margin-top: 40px;
   width: 400px;
+}
+
+.register-form {
+  margin-top: 50px;
 }
 
 
@@ -299,6 +342,18 @@ h2 {
 @media only screen and (max-width: 640px) {
 
   // LANDING PAGE
+  // .landingBackground {
+  //   background-image: url('/assets/images/jumbotron.jpg');
+  //   height: calc(100vh - 50px);
+  // }
+
+  .front-title {
+    color: grey;
+    font-size: 10px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+
   .front-div {
     width: 300px;
   }

@@ -38,8 +38,8 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          {this.state.errors && <p>{this.state.errors.message}</p>}
+        <div className="login-message">
+          {this.state.errors && <p className="error-message fadeIn animated">{this.state.errors.message}</p>}
         </div>
         <LoginForm
           user={this.state.user}

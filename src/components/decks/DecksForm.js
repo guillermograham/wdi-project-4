@@ -18,7 +18,7 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
         />
       </div>
       <div className="error">
-        {errors.name && <p className="error-message">{errors.name}</p>}
+        {errors.name && <p className="error-message fadeIn animated">{errors.name}</p>}
       </div>
       {/* <div className="control">
         <input
@@ -54,7 +54,7 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
         </div>
       </div>
       <div className="error">
-        {errors.language && <div className="error-message">{errors.language}</div>}
+        {errors.language && <div className="error-message fadeIn animated">{errors.language}</div>}
       </div>
       {/* <div>
         <button className="button is-primary">Save</button>
