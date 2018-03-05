@@ -28,8 +28,8 @@ class UsersShow extends Component {
   render() {
     return(
       <div>
-        <h2>My decks:</h2>
-        <div className="container grid box profile">
+        <h2 className="title is-4">My decks:</h2>
+        <div className="container grid profile user-profile">
           { this.state.user.myDecks && this.state.user.myDecks.map((deck) =>
             <Card
               deck={deck}
@@ -38,8 +38,8 @@ class UsersShow extends Component {
           )}
         </div>
 
-        <h2>My favourites:</h2>
-        <div className="container grid box profile">
+        <h2 className="title is-4">My favourites:</h2>
+        <div className="container profile user-profile">
           { this.state.user && this.state.user.favourites.map((deck) =>
             <Card
               deck={deck}

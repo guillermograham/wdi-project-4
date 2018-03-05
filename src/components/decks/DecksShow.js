@@ -185,7 +185,9 @@ class DecksShow extends Component {
         </div>}
         { this.state.deck.cards.length === 0 && <div>
           <p className="end-message animated bounceIn">There are no cards in this deck</p>
-          { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-primary">Add cards</Link>}
+          <div className="add-show">
+            { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-primary add-show">Add cards</Link>}
+          </div>
         </div>}
       </div>
       </div>

@@ -3,10 +3,11 @@
 @import "bulma/sass/utilities/functions";
 
 // $link: purple;
-$primary: #9D44B5;
+$primary: #FF88DC;
 $primary-invert: #fff;
-$link: #69DDFF;
-$danger: $orange;
+$link: #8884FF;
+$success: #A0E8AF;
+$danger: #FF5151;
 $background: white;
 $family-primary: 'Karla', sans-serif;
 
@@ -29,6 +30,19 @@ $family-primary: 'Karla', sans-serif;
 
 h1 {
   color: $primary;
+}
+
+
+// LANDING PAGE
+.front-div {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  width: 500px;
+}
+
+.front-buttons {
+  width: 200px;
 }
 
 .buttons {
@@ -76,12 +90,27 @@ header {
   width: 220px;
 }
 
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   max-width: 900px;
   margin: 0 auto;
+}
+
+h3 {
+  color: grey;
+}
+
+.title.is-4 {
+  color: grey;
+  margin-bottom: 0px;
 }
 
 // Show page
@@ -96,7 +125,6 @@ header {
   font-size: 30px;
   font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .flashcard {
@@ -127,8 +155,8 @@ header {
 }
 
 .information {
+  color: grey;
   margin: 0 20px;
-  text-transform: uppercase;
 }
 
 .deck-buttons {
@@ -145,6 +173,15 @@ header {
 
 .show-buttons-icon {
   margin-right: 5px;
+}
+
+.end-message {
+  margin-bottom: 30px;
+}
+
+.add-show {
+  margin: 0 auto;
+  width: 150px;
 }
 
 // LOGIN AND REGISTER
@@ -222,9 +259,22 @@ header {
 
 
 // PROFILE PAGE
+h2 {
+  color: grey;
+  text-align: center;
+}
+
 .profile {
   background-color: $background;
   width: 900px;
+}
+
+.user-profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -238,8 +288,18 @@ header {
 
 @media only screen and (max-width: 640px) {
 
+  // LANDING PAGE
+  .front-div {
+    width: 300px;
+  }
+
+  .front-buttons {
+    width: 100px;
+  }
+
   .cover {
     margin-top: 0px;
+    width: 300px;
   }
 
   .show-title {
@@ -322,7 +382,6 @@ header {
 
   .add-button {
     display: inline-block;
-    border: 1px solid black;
     height: 36px;
     margin-left: 0px;
     width: 36px;

@@ -10,6 +10,7 @@ import DecksIndex    from './components/decks/DecksIndex';
 import DecksShow    from './components/decks/DecksShow';
 import DecksEdit    from './components/decks/DecksEdit';
 import UsersShow    from './components/users/UsersShow';
+import LandingPage    from './components/static/LandingPage';
 
 import './scss/style.scss';
 import 'font-awesome/css/font-awesome.css';
@@ -39,6 +40,7 @@ class App extends React.Component {
 
             <main>
               <Switch>
+                <Route exact path="/" component={LandingPage} />
                 <Route path="/login" component={Login} />
                 <Route path="/register" component={Register} />
                 <Route path="/users/:userId" component={UsersShow} />
