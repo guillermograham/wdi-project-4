@@ -2,10 +2,9 @@ const mongoose = require('mongoose');
 const bcrypt   = require('bcrypt');
 
 const userSchema = mongoose.Schema({
-  username: { type: String, required: true },
-  email: { type: String, required: true },
-  password: { type: String, required: true },
-  image: String,
+  username: { type: String, required: 'Please enter a username' },
+  email: { type: String, required: 'Please enter an email address' },
+  password: { type: String, required: 'Please enter a password' },
   favourites: [{ type: mongoose.Schema.ObjectId, ref: 'Deck' }]
 });
 
@@ -23,7 +22,7 @@ userSchema
 
 userSchema.pre('validate', function checkPassword(next) {
   if(this.isModified('password') && (!this._passwordConfirmation || this._passwordConfirmation !== this.password)) {
-    this.invalidate('passwordConfirmation', 'does not match');
+    this.invalidate('passwordConfirmation', 'Password confirmation does not match');
   }
   next();
 });

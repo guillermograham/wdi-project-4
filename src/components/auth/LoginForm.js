@@ -13,6 +13,9 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
+      <div className="error">
+
+      </div>
       <div className="form-group user-input">
         <input
           type="password"
@@ -22,6 +25,9 @@ const LoginForm = ({ handleChange, handleSubmit, user }) => {
           value={user.password}
           className="input"
         />
+      </div>
+      <div className="error">
+
       </div>
       <div className="user-input">
         <button className="button is-primary login-button">Login</button>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RegisterForm = ({ handleChange, handleSubmit, user }) => {
+const RegisterForm = ({ handleChange, handleSubmit, user, errors }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group user-input">
@@ -13,6 +13,9 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
+      <div className="error">
+        {errors.username && <div>{errors.username}</div>}
+      </div>
       <div className="form-group user-input">
         <input
           type="text"
@@ -22,6 +25,9 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.email}
           className="input"
         />
+      </div>
+      <div className="error">
+        {errors.email && <div>{errors.email}</div>}
       </div>
       <div className="form-group user-input">
         <input
@@ -33,6 +39,9 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           className="input"
         />
       </div>
+      <div className="error">
+        {errors.password && <div>{errors.password}</div>}
+      </div>
       <div className="form-group user-input">
         <input
           type="password"
@@ -42,6 +51,9 @@ const RegisterForm = ({ handleChange, handleSubmit, user }) => {
           value={user.passwordConfirmation}
           className="input"
         />
+      </div>
+      <div className="error">
+        {errors.passwordConfirmation && <div>{errors.passwordConfirmation}</div>}
       </div>
       <div className="user-input">
         <button className="button is-primary login-button">Register</button>
