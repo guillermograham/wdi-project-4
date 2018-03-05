@@ -50,7 +50,7 @@ class DecksIndex extends Component {
     const decks = _.filter(searchFilteredDecks, (deck) => languageRegex.test(deck.language));
 
     return(
-      <div className="container">
+      <div>
         <SearchBar
           handleSort={this.handleSort}
           handleSearch={this.handleSearch}

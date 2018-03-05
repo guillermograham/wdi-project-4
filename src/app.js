@@ -36,7 +36,7 @@ class App extends React.Component {
               showBurger={this.state.showBurger}
             />
           </header>
-
+          <div className="container">
 
             <main>
               <Switch>
@@ -51,7 +51,7 @@ class App extends React.Component {
               </Switch>
             </main>
           </div>
-
+        </div>
       </Router>
 
     );

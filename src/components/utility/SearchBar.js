@@ -2,7 +2,7 @@ import React from 'react';
 
 const SearchBar = ({ handleSort, handleSearch, handleLanguageFilter }) => {
   return(
-    <div className="level">
+    <div className="level search">
       <div className="level-item is-tablet">
         <div className="select" onChange={handleLanguageFilter}>
           <select className="search-items">
