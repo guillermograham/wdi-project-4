@@ -196,6 +196,12 @@ h3 {
   width: 400px;
 }
 
+.login-message {
+  height: 20px;
+  margin: 0 auto;
+  width: 400px;
+}
+
 
 // CREATE PAGE
 
@@ -251,10 +257,14 @@ h3 {
 }
 
 .error {
-  height: 20px;
-  font-size: 10px;
+  height: 25px;
   margin: 0 auto;
   width: 400px;
+}
+
+.error-message {
+  color: $danger;
+  font-size: 14px;
 }
 
 
@@ -392,10 +402,13 @@ h2 {
   }
 
   .error {
-    height: 20px;
-    font-size: 10px;
+    height: 30px;
     margin: 0 auto;
-    width: 280px;
+    width: 240px;
+  }
+
+  .error-message {
+    width: 240px;
   }
 
   // LOGIN AND REGISTER

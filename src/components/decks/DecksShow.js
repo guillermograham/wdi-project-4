@@ -16,7 +16,8 @@ class DecksShow extends Component {
       favourites: []
     },
     currentIndex: 0,
-    showAnswer: false
+    showAnswer: false,
+    favAnimation: false
   }
 
   deleteDeck = () => {
@@ -26,6 +27,14 @@ class DecksShow extends Component {
       })
       .then(() => this.props.history.push('/'))
       .catch(err => console.log(err));
+  }
+
+  toggleFavAnimation = () => {
+    this.setState({ favAnimation: !this.state.favAnimation}, () => {
+      setTimeout(() => {
+        this.setState({ favAnimation: !this.state.favAnimation});
+      }, 500);
+    });
   }
 
   componentDidMount() {
@@ -59,6 +68,7 @@ class DecksShow extends Component {
         const deck = Object.assign({}, this.state.deck, { favourites: newFavourites});
         this.setState({ deck }, () => {
           console.log('this.state.deck afterwards: ', this.state.deck);
+          this.toggleFavAnimation();
         });
       })
       .catch(err => console.log(err));
@@ -115,8 +125,8 @@ class DecksShow extends Component {
             </div>
             <div className="">
               { this.state.deck.favourites && <div>
-                { this.state.deck.favourites.length !== 1 && <p className="information"><i className="far fa-star"></i> {this.state.deck.favourites.length} favourites</p>}
-                { this.state.deck.favourites.length === 1 && <p className="information"><i className="far fa-star"></i> {this.state.deck.favourites.length} favourite</p>}
+                { this.state.deck.favourites.length !== 1 && <p className="information"><i className={`${(this.state.favAnimation ? 'animated flash': '')} far fa-star`}></i> {this.state.deck.favourites.length} favourites</p>}
+                { this.state.deck.favourites.length === 1 && <p className="information"><i className={`${(this.state.favAnimation ? 'animated flash': '')} far fa-star`}></i> {this.state.deck.favourites.length} favourite</p>}
               </div>}
             </div>
           </div>
