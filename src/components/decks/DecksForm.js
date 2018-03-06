@@ -4,7 +4,7 @@ import React from 'react';
 
 const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
   return(
-    <form onSubmit={handleSubmit} className="col-md-6">
+    <form onSubmit={handleSubmit} className="col-md-6 decks-new-form">
       <div className="control decks-form decks-form-outside">
         <input
           type="text"
