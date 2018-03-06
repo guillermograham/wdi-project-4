@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar      from './components/utility/Navbar';
 import Login       from './components/auth/Login';
 import Register    from './components/auth/Register';
-import DecksNew    from './components/decks/DecksNew';
+import DecksNew    from './components/decks/DecksNewComponent';
 import DecksIndex    from './components/decks/DecksIndex';
 import DecksShow    from './components/decks/DecksShow';
 import DecksEdit    from './components/decks/DecksEdit';
