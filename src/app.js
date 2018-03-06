@@ -15,7 +15,6 @@ import LandingPage    from './components/static/LandingPage';
 import './scss/style.scss';
 import 'font-awesome/css/font-awesome.css';
 
-
 class App extends React.Component {
 
   state = {
