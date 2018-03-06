@@ -37,6 +37,9 @@ class UsersShow extends Component {
             />
           )}
         </div>
+        {(this.state.user.myDecks.length === 0) && <div>
+          <p className="profile-message">You currently have no decks.</p>
+        </div>}
 
         <h2 className="title is-4">My favourites:</h2>
         <div className="container profile user-profile">
@@ -47,6 +50,9 @@ class UsersShow extends Component {
             />
           )}
         </div>
+        {(this.state.user.myDecks.length === 0) && <div>
+          <p className="profile-message">You currently have no favourited decks.</p>
+        </div>}
       </div>
     );
   }
