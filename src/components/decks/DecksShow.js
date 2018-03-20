@@ -176,42 +176,55 @@ class DecksShow extends Component {
               </div>
             }
           </div>
-        {this.state.deck.cards && <div>
-          { this.state.deck.cards.length > this.state.currentIndex && <div>
-            <div className="box flashcard">
-              <h3 className="animated zoomIn">{this.state.deck.cards[this.state.currentIndex].question}</h3>
+          {this.state.deck.cards &&
+            <div>
+              { this.state.deck.cards.length > this.state.currentIndex &&
+                <div>
+                  <div className="box flashcard">
+                    <h3 className="animated zoomIn">
+                      {this.state.deck.cards[this.state.currentIndex].question}
+                    </h3>
+                  </div>
+                  <div className="box flashcard">
+                    { this.state.showAnswer &&
+                      <div>
+                        <h3 className="animated flipInX">
+                          {this.state.deck.cards[this.state.currentIndex].answer}
+                        </h3>
+                      </div>
+                    }
+                  </div>
+                  <div className="box flashcard buttons">
+                    { !this.state.showAnswer &&
+                      <button
+                        onClick={this.showAnswer}
+                        className="reveal-button button is-primary"
+                      >
+                        Reveal
+                      </button>
+                    }
+
+                    { this.state.showAnswer &&
+                      <div>
+                        <button
+                          onClick={this.correctAnswer}
+                          className="answer-button button is-success"
+                        >
+                          <i className="fas fa-check"></i> Correct
+                        </button>
+                        <button
+                          onClick={this.incorrectAnswer}
+                          className="answer-button button is-danger"
+                        >
+                          <i className="fas fa-times" aria-hidden="true"></i> Incorrect
+                        </button>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
             </div>
-
-            <div className="box flashcard">
-              { this.state.showAnswer && <div>
-                <h3 className="animated flipInX">{this.state.deck.cards[this.state.currentIndex].answer}</h3>
-              </div>}
-            </div>
-
-            <div className="box flashcard buttons">
-
-
-
-                { !this.state.showAnswer && <button onClick={this.showAnswer} className="reveal-button button is-primary">
-                  Reveal
-                </button>}
-
-
-                { this.state.showAnswer && <div>
-                  <button
-                    onClick={this.correctAnswer}
-                    className="answer-button button is-success"
-                  ><i className="fas fa-check"></i> Correct
-                  </button>
-                  <button
-                    onClick={this.incorrectAnswer}
-                    className="answer-button button is-danger"
-                  ><i className="fas fa-times" aria-hidden="true"></i> Incorrect
-                  </button>
-                </div>}
-              </div>
-            </div>}
-          </div>}
+          }
 
           {/* If no cards in array and currentIndex > 0, show Congratulations message */}
           { this.state.deck.cards.length === this.state.currentIndex
@@ -233,7 +246,6 @@ class DecksShow extends Component {
               </div>
             </div>
           }
-
         </div>
       </div>
     );
