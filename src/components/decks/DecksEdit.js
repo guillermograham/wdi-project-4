@@ -53,7 +53,7 @@ class DecksEdit extends Component {
   handleCardSubmit = (e) => {
     e.preventDefault();
     const deck = Object.assign({}, this.state.deck, { cards: this.state.deck.cards.concat(this.state.newCard)});
-    this.setState({deck, newCard: { question: '', answer: ''} }, () => console.log(this.state));
+    this.setState({deck, newCard: { question: '', answer: ''} });
   }
 
   handleCardDelete = (index) => {
