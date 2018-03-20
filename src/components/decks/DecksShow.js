@@ -59,11 +59,8 @@ class DecksShow extends Component {
       .then(res => {
         const newFavourites = this.state.deck.favourites.slice();
         newFavourites.push(res.data);
-        console.log('res.data.id: ', res.data.id);
-        console.log('this.state.deck.favourites: ', this.state.deck.favourites);
         const deck = Object.assign({}, this.state.deck, { favourites: newFavourites});
         this.setState({ deck }, () => {
-          console.log('this.state.deck afterwards: ', this.state.deck);
           this.toggleFavAnimation();
         });
       })
