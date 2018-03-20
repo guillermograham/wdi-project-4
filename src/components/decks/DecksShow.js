@@ -155,12 +155,26 @@ class DecksShow extends Component {
                 }
               </div>
             }
-            { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
-              <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link is-outlined edit-button show-buttons"><i className="fas fa-edit show-buttons-icon"></i> Edit</Link>
-            </div>}
-            { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
-              <button onClick={this.deleteDeck} className="button is-danger delete-button is-outlined show-buttons"><i className="far fa-trash-alt show-buttons-icon"></i> Delete</button>
-            </div>}
+            { Auth.getPayload().userId === this.state.deck.createdBy &&
+              <div>
+                <Link
+                  to={`/decks/${this.props.match.params.id}/edit`}
+                  className="button is-link is-outlined edit-button show-buttons"
+                >
+                  <i className="fas fa-edit show-buttons-icon"></i> Edit
+                </Link>
+              </div>
+            }
+            { Auth.getPayload().userId === this.state.deck.createdBy &&
+              <div>
+                <button
+                  onClick={this.deleteDeck}
+                  className="button is-danger delete-button is-outlined show-buttons"
+                >
+                  <i className="far fa-trash-alt show-buttons-icon"></i> Delete
+                </button>
+              </div>
+            }
           </div>
         {this.state.deck.cards && <div>
           { this.state.deck.cards.length > this.state.currentIndex && <div>
