@@ -105,14 +105,32 @@ class DecksShow extends Component {
         <div className="box cover">
           <h3 className="show-title">{this.state.deck.name}</h3>
           <div className="level deck-information">
-            <div className="">
-              <p className="information"><i className="far fa-flag"></i> {this.state.deck.language}</p>
+            <div>
+              <p className="information">
+                <i className="far fa-flag"></i> {this.state.deck.language}
+              </p>
             </div>
-            <div className="">
-              { this.state.deck.favourites && <div>
-                { this.state.deck.favourites.length !== 1 && <p className="information"><i className={`${(this.state.favAnimation ? 'animated flash': '')} far fa-star`}></i> {this.state.deck.favourites.length} favourites</p>}
-                { this.state.deck.favourites.length === 1 && <p className="information"><i className={`${(this.state.favAnimation ? 'animated flash': '')} far fa-star`}></i> {this.state.deck.favourites.length} favourite</p>}
-              </div>}
+            <div>
+              { this.state.deck.favourites &&
+                <div>
+                  { this.state.deck.favourites.length !== 1 &&
+                    <p className="information">
+                      <i
+                        className={`${(this.state.favAnimation ? 'animated flash': '')} far fa-star`}
+                      >
+                      </i> {this.state.deck.favourites.length} favourites
+                    </p>
+                  }
+                  { this.state.deck.favourites.length === 1 &&
+                    <p className="information">
+                      <i
+                        className={`${(this.state.favAnimation ? 'animated flash': '')} far fa-star`}
+                      >
+                      </i> {this.state.deck.favourites.length} favourite
+                    </p>
+                  }
+                </div>
+              }
             </div>
           </div>
           <div className="level deck-buttons">
