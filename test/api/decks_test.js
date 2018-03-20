@@ -195,7 +195,6 @@ describe('Decks Controller Tests', () => {
 
       // works when adding .id, but not without
       // testDeck.createdBy = testDeck.createdBy.id;
-      console.log('testDeck*******************',testDeck);
 
       api
         .put(`/api/decks/${testDeck.id}`)
@@ -292,7 +291,6 @@ describe('Decks Controller Tests', () => {
           return Deck.create(testDeckData);
         })
         .then(deck => {
-          console.log('***************deck: ', deck);
           testDeck = deck;
 
           api

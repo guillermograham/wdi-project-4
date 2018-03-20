@@ -49,7 +49,7 @@ describe('Authentication controller tests', () => {
           expect(res.body).to.be.a('object');
           expect(res.body.message).to.eq('Unprocessable Entity');
           expect(res.body.errors).to.be.a('object');
-          expect(res.body.errors['passwordConfirmation']).to.eq('does not match');
+          expect(res.body.errors['passwordConfirmation']).to.eq('Password confirmation does not match');
           done();
         });
     });
