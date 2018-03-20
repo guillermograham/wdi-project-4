@@ -135,12 +135,26 @@ class DecksShow extends Component {
           </div>
           <div className="level deck-buttons">
             <BackButton />
-            {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
-              {/* {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div> */}
-              { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="button is-link show-buttons favourite-button"><i className="far fa-star show-buttons-icon"></i> Favourite</button>}
-              { this.hasFavourited() && <button onClick={this.unFavouriteDeck} className="button is-link is-outlined show-buttons unfavourite-button"><i className="far fa-star show-buttons-icon"></i> Unfavourite</button>}
-              {/* </div> } */}
-            </div>}
+            {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy &&
+              <div>
+                { !this.hasFavourited() &&
+                  <button
+                    onClick={this.favouriteDeck}
+                    className="button is-link show-buttons favourite-button"
+                  >
+                    <i className="far fa-star show-buttons-icon"></i> Favourite
+                  </button>
+                }
+                { this.hasFavourited() &&
+                  <button
+                    onClick={this.unFavouriteDeck}
+                    className="button is-link is-outlined show-buttons unfavourite-button"
+                  >
+                    <i className="far fa-star show-buttons-icon"></i> Unfavourite
+                  </button>
+                }
+              </div>
+            }
             { Auth.getPayload().userId === this.state.deck.createdBy && <div className="">
               <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-link is-outlined edit-button show-buttons"><i className="fas fa-edit show-buttons-icon"></i> Edit</Link>
             </div>}
