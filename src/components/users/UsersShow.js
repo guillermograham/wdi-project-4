@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-import { Link } from 'react-router-dom';
 import Card from '../utility/Card';
-
-// import BackButton from '../utility/BackButton';
 
 class UsersShow extends Component {
   state = {
@@ -15,7 +12,7 @@ class UsersShow extends Component {
   }
 
   componentDidMount() {
-    console.log('PROPS: ', this.props);
+
     Axios
       .get(`/api/users/${this.props.match.params.userId}`)
       .then(res => this.setState({ user: res.data }, () => {
@@ -50,7 +47,7 @@ class UsersShow extends Component {
             />
           )}
         </div>
-        {(this.state.user.myDecks.length === 0) && <div>
+        {(this.state.user.favourites.length === 0) && <div>
           <p className="profile-message">You currently have no favourited decks.</p>
         </div>}
       </div>
