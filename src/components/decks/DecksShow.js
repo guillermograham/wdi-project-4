@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import Auth from '../../lib/Auth';
-// import { Link } from 'react-router-dom';
 
 import BackButton from '../utility/BackButton';
 
@@ -25,7 +24,7 @@ class DecksShow extends Component {
       .delete(`/api/decks/${this.props.match.params.id}`, {
         headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
       })
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/decks'))
       .catch(err => console.log(err));
   }
 
@@ -185,7 +184,7 @@ class DecksShow extends Component {
           </div>}
 
           {/* If no cards in array and currentIndex > 0, show Congratulations message */}
-          { this.state.deck.cards.length === this.state.currentIndex 
+          { this.state.deck.cards.length === this.state.currentIndex
             && this.state.currentIndex > 0 &&
             <div className="end-message">
               <p className="end-message animated tada">Congratulations!</p>
