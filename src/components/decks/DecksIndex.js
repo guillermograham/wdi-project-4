@@ -8,8 +8,6 @@ import Card from '../utility/Card';
 
 class DecksIndex extends Component {
 
-  // using transform-class-properties in Babel, so don't need to define a constructor
-
   state = {
     decks: [],
     sortBy: 'favourites',
@@ -23,7 +21,7 @@ class DecksIndex extends Component {
       .get('/api/decks', {
         headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
       })
-      .then(res => this.setState({ decks: res.data }, () => console.log(this.state)))
+      .then(res => this.setState({ decks: res.data }))
       .catch(err => console.log(err));
   }
 
@@ -37,7 +35,7 @@ class DecksIndex extends Component {
   }
 
   handleLanguageFilter = (e) => {
-    this.setState({ languageFilter: e.target.value }, () => console.log(this.state));
+    this.setState({ languageFilter: e.target.value });
   }
 
   render() {
