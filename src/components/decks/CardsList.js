@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck, newCard }) => {
 
   const buttonIsInvalid = !(newCard.question && newCard.answer);
@@ -57,6 +55,5 @@ const CardsList = ({ handleCardChange, handleCardSubmit, handleCardDelete, deck,
     </div>
   );
 };
-
 
 export default CardsList;
