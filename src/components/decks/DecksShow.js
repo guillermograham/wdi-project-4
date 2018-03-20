@@ -180,26 +180,32 @@ class DecksShow extends Component {
                   ><i className="fas fa-times" aria-hidden="true"></i> Incorrect
                   </button>
                 </div>}
-
-            </div>
-
-
-
-
-
-
+              </div>
+            </div>}
           </div>}
-        </div>}
-        { this.state.deck.cards.length === this.state.currentIndex && this.state.currentIndex > 0 && <div className="end-message">
-          <p className="end-message animated tada">Congratulations!</p>
-        </div>}
-        { this.state.deck.cards.length === 0 && <div>
-          <p className="end-message animated bounceIn">There are no cards in this deck</p>
-          <div className="add-show">
-            { Auth.getPayload().userId === this.state.deck.createdBy && <Link to={`/decks/${this.props.match.params.id}/edit`} className="button is-primary add-show">Add cards</Link>}
-          </div>
-        </div>}
-      </div>
+
+          {/* If no cards in array and currentIndex > 0, show Congratulations message */}
+          { this.state.deck.cards.length === this.state.currentIndex 
+            && this.state.currentIndex > 0 &&
+            <div className="end-message">
+              <p className="end-message animated tada">Congratulations!</p>
+            </div>}
+
+          {/* If no cards in array and currentIndex = 0, inform deck has no cards */}
+          { this.state.deck.cards.length === 0 &&
+            <div>
+              <p className="end-message animated bounceIn">
+                There are no cards in this deck
+              </p>
+              <div className="add-show">
+                { Auth.getPayload().userId === this.state.deck.createdBy &&
+                <Link to={`/decks/${this.props.match.params.id}/edit`}
+                  className="button is-primary add-show">Add cards</Link>}
+              </div>
+            </div>
+          }
+
+        </div>
       </div>
     );
   }

@@ -32,7 +32,7 @@ class DecksNew extends Component {
       .post('/api/decks', this.state.deck, {
         headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
       })
-      .then(() => this.props.history.push('/'))
+      .then(() => this.props.history.push('/decks'))
       .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
