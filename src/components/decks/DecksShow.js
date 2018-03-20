@@ -77,9 +77,7 @@ class DecksShow extends Component {
         const index = newFavourites.indexOf(res.data.id);
         newFavourites.splice(index, 1);
         const deck = Object.assign({}, this.state.deck, { favourites: newFavourites});
-        this.setState({ deck }, () => {
-          console.log('this.state.deck afterwards: ', this.state.deck);
-        });
+        this.setState({ deck });
       })
       .catch(err => console.log(err));
   }
