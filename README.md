@@ -88,6 +88,8 @@ The user is informed that they have completed the deck once there are no cards l
 
 * The application is fully mobile responsive. As wordUp is designed for regular and quick vocabulary testing, it is vital that it functions on mobile devices. This was achieved through a mobile-first design approach, using Balsamiq wireframes during the planning stage.
 
+<img src="src/assets/images/screenshots/decks-show-mobile.png" style="height: 300px;" /><img src="src/assets/images/screenshots/decks-index-mobile.png" style="height: 300px;" />
+
 * A clean, fresh design was achieved on this project. This is particularly down to the integration of Animate CSS for the pop up messages during form validation and also during flash-card utilisation - giving the app a slick, professional feel. Bulma.io was used for its lightweight feel and customised using a colour palette from the Coolors website, providing an individual edge. FontAwesome icons also enhance the appearance of the app.
 
 ### Challenges faced
