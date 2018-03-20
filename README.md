@@ -102,7 +102,15 @@ The user is informed that they have completed the deck once there are no cards l
 
 ### Challenges faced
 
-currentIndex 0 - there are no cards in this deck
+* When the user has correctly answered all of the cards, a message is displayed informing that the deck has been completed. This message is prompted by the array length being equal to 0. However, this message would be shown if the deck did not contain any cards to begin with, and would not be suitable in this instance.
+
+In order to avoid this, I created a currentIndex to state, which begins at 0. The currentIndex variable is incremented by 1 each time a user answers a card. If cards array and current array both equal 0, a message is displayed informing that there are no cards in the deck.
+
+If the cards array is equal to 0, whilst the currentIndex is greater than 0, a congratulatory message is displayed to the user, informing them that they have completed the deck.
+
+<kbd>
+  <img src="src/assets/images/screenshots/no-cards-message.png" />
+</kbd>
 
 * This was my first large-scale project built using React. As such, it proved difficult to plan the project. This challenge was overcome by using Trello during the planning stage to ensure that each process was thought through prior to the build stage.
 
