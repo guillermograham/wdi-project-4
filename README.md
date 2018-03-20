@@ -1,6 +1,6 @@
 ![ga_cog_large_red_rgb](https://cloud.githubusercontent.com/assets/40461/8183776/469f976e-1432-11e5-8199-6ac91363302b.png)
 
-# wordUp
+# WordUp
 
 A flashcard-generating application, used for vocabulary acquisition. This application was inspired by my love of language learning and allows users to create and share flashcards, and also test themselves. The logic ensures repetition of the flashcards which the user finds more difficult to remember.
 
