@@ -36,7 +36,6 @@ class App extends React.Component {
             />
           </header>
           <div className="container">
-
             <main>
               <Switch>
                 <Route exact path="/" component={LandingPage} />
@@ -52,7 +51,6 @@ class App extends React.Component {
           </div>
         </div>
       </Router>
-
     );
   }
 }
