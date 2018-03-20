@@ -134,9 +134,7 @@ class DecksShow extends Component {
             </div>
           </div>
           <div className="level deck-buttons">
-            <div className="">
-              <BackButton />
-            </div>
+            <BackButton />
             {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div>
               {/* {this.state.deck.favourites && Auth.getPayload().userId !== this.state.deck.createdBy && <div> */}
               { !this.hasFavourited() &&  <button onClick={this.favouriteDeck} className="button is-link show-buttons favourite-button"><i className="far fa-star show-buttons-icon"></i> Favourite</button>}
