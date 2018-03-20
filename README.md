@@ -90,6 +90,14 @@ The user is informed that they have completed the deck once there are no cards l
 
 <img src="src/assets/images/screenshots/decks-show-mobile.png" height="300" /><img src="src/assets/images/screenshots/decks-index-mobile.png" height="300" />
 
+* Form validation takes place throughout the application, improving its UX. In addition to the messages shown alongside the inputs (as in the screenshot below), the 'Save' button is disabled by the front-end until the input is sufficiently modified.
+
+<kbd>
+  <img src="src/assets/images/screenshots/form-validation.png" />
+</kbd>
+
+* Another aspect of form validation is in place on the above screenshot. The '+' button (used to add a card to a deck) cannot be clicked unless a question and answer (both sides of the flashcard) have been written.
+
 * A clean, fresh design was achieved on this project. This is particularly down to the integration of Animate CSS for the pop up messages during form validation and also during flash-card utilisation - giving the app a slick, professional feel. Bulma.io was used for its lightweight feel and customised using a colour palette from the Coolors website, providing an individual edge. FontAwesome icons also enhance the appearance of the app.
 
 ### Challenges faced
@@ -97,6 +105,10 @@ The user is informed that they have completed the deck once there are no cards l
 currentIndex 0 - there are no cards in this deck
 
 * This was my first large-scale project built using React. As such, it proved difficult to plan the project. This challenge was overcome by using Trello during the planning stage to ensure that each process was thought through prior to the build stage.
+
+<kbd>
+  <img src="src/assets/images/screenshots/trello-board.png" />
+</kbd>
 
 ### Where next?
 
