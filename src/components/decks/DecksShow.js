@@ -95,14 +95,10 @@ class DecksShow extends Component {
     const newArray = this.state.deck.cards.slice();
     newArray.push(this.state.deck.cards[index]);
     const deck = Object.assign({}, this.state.deck, { cards: newArray });
-    this.setState({ deck , currentIndex: this.state.currentIndex + 1, showAnswer: false }, () => {
-      console.log('cards: ', this.state.deck.cards.length, 'currentIndex: ', this.state.currentIndex);
-    });
+    this.setState({ deck , currentIndex: this.state.currentIndex + 1, showAnswer: false });
   }
 
   render() {
-
-    // const button = !this.hasFavourited() ? <button onClick={this.favouriteDeck}>Favourite</button> : <button onClick={this.unFavouriteDeck}>Unfavourite</button>;
 
     return(
       <div>
