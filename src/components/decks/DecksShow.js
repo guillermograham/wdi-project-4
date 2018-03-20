@@ -87,9 +87,7 @@ class DecksShow extends Component {
   }
 
   correctAnswer = () => {
-    this.setState({ currentIndex: this.state.currentIndex + 1, showAnswer: false }, () => {
-      console.log('cards: ', this.state.deck.cards.length, 'currentIndex: ', this.state.currentIndex);
-    });
+    this.setState({ currentIndex: this.state.currentIndex + 1, showAnswer: false });
   }
 
   incorrectAnswer = () => {
