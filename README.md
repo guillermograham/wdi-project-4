@@ -100,6 +100,10 @@ The user is informed that they have completed the deck once there are no cards l
 
 * Another aspect of form validation is in place on the above screenshot. The '+' button (used to add a card to a deck) cannot be clicked unless a question and answer (both sides of the flashcard) have been written.
 
+* The back-end has been tested comprehensively:
+
+<img src="src/assets/images/screenshots/api-testing.png" />
+
 * A clean, fresh design was achieved on this project. This is particularly down to the integration of Animate CSS for the pop up messages during form validation and also during flash-card utilisation - giving the app a slick, professional feel. Bulma.io was used for its lightweight feel and customised using a colour palette from the Coolors website, providing an individual edge. FontAwesome icons also enhance the appearance of the app.
 
 ### Challenges faced
