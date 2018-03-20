@@ -41,10 +41,7 @@ class DecksShow extends Component {
       .get(`/api/decks/${this.props.match.params.id}`, {
         headers: { 'Authorization': 'Bearer ' + Auth.getToken() }
       })
-      .then(res => this.setState({ deck: res.data }, () => {
-        console.log(res.data);
-        console.log('state',this.state);
-      }))
+      .then(res => this.setState({ deck: res.data }))
       .catch(err => console.log(err));
   }
 
