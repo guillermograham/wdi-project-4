@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
   return(
     <form onSubmit={handleSubmit} className="col-md-6 decks-new-form">
@@ -20,18 +18,6 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
       <div className="error">
         {errors.name && <p className="error-message fadeIn animated">{errors.name}</p>}
       </div>
-      {/* <div className="control">
-        <input
-          type="text"
-          className="input"
-          id="language"
-          name="language"
-          placeholder="Language"
-          value={deck.language}
-          onChange={handleChange}
-        />
-        {errors.language && <div>{errors.language}</div>}
-      </div> */}
       <div className="control decks-form decks-form-outside">
         <div className="select decks-form">
           <select
@@ -56,12 +42,8 @@ const DecksForm = ({ handleChange, handleSubmit, deck, errors }) => {
       <div className="error">
         {errors.language && <div className="error-message fadeIn animated">{errors.language}</div>}
       </div>
-      {/* <div>
-        <button className="button is-primary">Save</button>
-      </div> */}
     </form>
   );
 };
-
 
 export default DecksForm;
