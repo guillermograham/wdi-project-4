@@ -15,10 +15,7 @@ class UsersShow extends Component {
 
     Axios
       .get(`/api/users/${this.props.match.params.userId}`)
-      .then(res => this.setState({ user: res.data }, () => {
-        console.log(this.state.user);
-        console.log(res);
-      }))
+      .then(res => this.setState({ user: res.data }))
       .catch(err => console.log(err));
   }
 
