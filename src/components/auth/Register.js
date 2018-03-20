@@ -26,13 +26,10 @@ class Register extends React.Component {
     e.preventDefault();
     Axios
       .post('/api/register', this.state.user)
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         this.props.history.push('/login');
       })
-      .catch(err => this.setState({ errors: err.response.data.errors }, () => {
-        console.log(this.state);
-      }));
+      .catch(err => this.setState({ errors: err.response.data.errors }));
   }
 
   render() {
