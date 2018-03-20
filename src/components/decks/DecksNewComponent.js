@@ -38,15 +38,13 @@ class DecksNew extends Component {
 
   handleCardChange = ({ target: { name, value }}) => {
     const newCard = Object.assign({}, this.state.newCard, { [name]: value});
-    this.setState({ newCard }, () => {
-      console.log(this.state.newCard);
-    });
+    this.setState({ newCard });
   }
 
   handleCardSubmit = (e) => {
     e.preventDefault();
     const deck = Object.assign({}, this.state.deck, { cards: this.state.deck.cards.concat(this.state.newCard)});
-    this.setState({deck, newCard: { question: '', answer: ''} }, () => console.log(this.state));
+    this.setState({deck, newCard: { question: '', answer: ''} });
   }
 
   handleCardDelete = (index) => {
@@ -63,7 +61,6 @@ class DecksNew extends Component {
       <div>
         <DecksForm
           handleChange ={this.handleChange}
-          // handleSubmit = { this.handleSubmit }
           deck ={this.state.deck}
           errors={this.state.errors}
         />
@@ -76,7 +73,13 @@ class DecksNew extends Component {
           newCard={this.state.newCard}
         />
         <div className="decks-form">
-          <button disabled={formIsInvalid} className="button is-primary decks-form save-button" onClick={this.handleSubmit}>Save</button>
+          <button
+            disabled={formIsInvalid}
+            className="button is-primary decks-form save-button"
+            onClick={this.handleSubmit}
+          >
+            Save
+          </button>
         </div>
       </div>
     );
