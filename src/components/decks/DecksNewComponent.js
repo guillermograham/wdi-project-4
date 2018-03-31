@@ -58,7 +58,7 @@ class DecksNew extends Component {
     const formIsInvalid = Object.keys(this.state.errors).some(key => this.state.errors[key]);
 
     return(
-      <div>
+      <div className="new-deck-form">
         <DecksForm
           handleChange ={this.handleChange}
           deck ={this.state.deck}

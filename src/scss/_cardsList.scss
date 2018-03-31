@@ -1,0 +1,77 @@
+div {
+  &.created-cards {
+    margin-bottom: 10px;
+    div {
+      &.card-row {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        margin-bottom: 3px;
+        p {
+          &.card-face {
+            font-size: 10px;
+            width: 180px;
+          }
+        }
+      }
+    }
+  }
+}
+
+form {
+  &.new-card-submit-form {
+    margin-bottom: 20px;
+    div {
+      &.new-card-form-row {
+        display: flex;
+        flex-direction: row;
+        .question-card-input {
+          margin-right: 10px;
+          width: 170px;
+        }
+        .answer-card-input {
+          width: 170px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 640px) {
+
+  div {
+    &.created-cards {
+      margin-bottom: 10px;
+      div {
+        &.card-row {
+          margin-bottom: 3px;
+          p {
+            &.card-face {
+              font-size: 10px;
+              margin-right: 20px;
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  form {
+    &.new-card-submit-form {
+      margin-bottom: 20px;
+      div {
+        &.new-card-form-row {
+          .question-card-input {
+            margin-right: 10px;
+            width: 100px;
+          }
+          .answer-card-input {
+            margin-right: 10px;
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -24,6 +24,8 @@ $family-primary: 'Karla', sans-serif;
 
 // 6. Import the rest of Bulma
 @import "bulma/bulma";
+@import "CardsList";
+@import "cardsForm";
 
 // @font-face {
 //   font-family: "Gilroy";
@@ -346,6 +348,8 @@ h2 {
   margin-bottom: 50px;
   text-align: center;
 }
+
+
 
 @media only screen and (max-width: 900px) {
 

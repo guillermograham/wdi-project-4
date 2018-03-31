@@ -1,0 +1,11 @@
+.new-deck-form {
+  margin: 0 auto;
+  width: 400px;
+}
+
+@media only screen and (max-width: 640px) {
+
+  .new-deck-form {
+    width: 240px;
+  }
+}
